@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service
 
-**Last updated: May 12, 2026**
+**Last updated: May 13, 2026**
 
 These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Kohei Omori ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
 
@@ -27,34 +27,28 @@ We grant you a non-exclusive, non-transferable license to use the App on your iO
 - Modify, copy, redistribute, lend, lease, or sell the App
 - Sublicense the App to any third party
 
-## 4. Purchases and Subscriptions
+## 4. Purchases (One-Time)
 
 ### 4.1 Pricing plans
 
-The App offers the following plans. Prices follow App Store Connect settings and are displayed in local currency.
+The App offers the following plans. Prices follow App Store Connect settings and are displayed in local currency. **No subscriptions or auto-renewing plans are offered**.
 
 | Plan | Description | Price (US) |
 |------|-------------|-----------|
 | Free | Up to 3 video exports | $0 |
-| Lifetime (one-time) | All basic features unlocked, unlimited processing | $6.99 (tax included) |
-| Pro Monthly | Pro features (4K high-quality model, queue up to 10, new model updates) | $3.99 / month |
-| Pro Yearly | Same as above, annual contract | $29.99 / year (7-day free trial) |
+| Lifetime (one-time) | All features unlocked, unlimited processing (includes 4K high-quality model, queue up to 10, future model updates) | $6.99 (tax included) — one-time |
 
 ### 4.2 Payment
 
-Payments are processed through your Apple ID's payment method. We do not handle payment information directly.
+Payments are processed through your Apple ID's payment method. We do not handle payment information directly. The Lifetime plan is a **single one-time purchase** with no auto-renewal.
 
-### 4.3 Auto-renewal (Subscriptions)
-
-Pro Monthly and Pro Yearly plans **automatically renew** unless cancelled at least 24 hours before the end of the current period. You can cancel via iOS Settings → Apple ID → Subscriptions.
-
-### 4.4 Refunds
+### 4.3 Refunds
 
 Refund requests must be made through **Apple Support**. We follow Apple's decisions. Apple's refund policy is available at https://support.apple.com/HT204084.
 
-### 4.5 Price changes
+### 4.4 Price changes
 
-We may change prices in the future. Changes apply to new purchases and subscription renewals and do not affect existing Lifetime users' rights.
+We may change prices in the future. Changes apply only to new purchases and do not affect existing Lifetime users' rights.
 
 ## 5. Intellectual Property
 
