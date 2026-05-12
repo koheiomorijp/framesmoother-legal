@@ -7,7 +7,7 @@ title: Terms of Service
 
 **Last updated: May 12, 2026**
 
-These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Naruberio LLC ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
+These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Kohei Omori ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
 
 ---
 

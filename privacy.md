@@ -7,7 +7,7 @@ title: Privacy Policy
 
 **Last updated: May 12, 2026**
 
-Naruberio LLC (the "Company", "we", "us", or "our") provides this Privacy Policy to explain how we handle your information in the iOS application "**FrameSmoother**" (the "App").
+Kohei Omori (a sole proprietor, hereinafter the "Operator", "we", "us", or "our") provides this Privacy Policy to explain how we handle your information in the iOS application "**FrameSmoother**" (the "App").
 
 ---
 
@@ -78,7 +78,7 @@ This Policy may be revised due to legal changes or feature updates to the App. S
 
 For inquiries regarding this Policy or how the App is operated, please contact:
 
-- **Entity**: Naruberio LLC
+- **Entity**: Kohei Omori
 - **Email**: [konpei.work@gmail.com](mailto:konpei.work@gmail.com)
 
 ---
