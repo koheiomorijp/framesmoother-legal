@@ -46,7 +46,7 @@ The App does not communicate over the network **except** for the following.
 
 | Recipient | Purpose | Information transmitted |
 |-----------|---------|------------------------|
-| Apple StoreKit / App Store servers | In-app purchases (one-time and subscription) | Billing information managed automatically by Apple. We do not access this information. |
+| Apple StoreKit / App Store servers | In-app purchases (one-time only) | Billing information managed automatically by Apple. We do not access this information. |
 
 No third-party analytics services (Google Analytics, Firebase, etc.), advertising SDKs, or crash reporting services are integrated into the App.
 
