@@ -19,9 +19,15 @@ iOS アプリ「**FrameSmoother**」のプライバシーポリシー・利用�
 - [日本語版](./terms-ja)
 - [English](./terms)
 
-## サポート
+## Support / お問い合わせ
 
-ご質問・お問い合わせは [konpei.work@gmail.com](mailto:konpei.work@gmail.com) までお願いいたします。
+For support, questions, or bug reports, please contact:
+
+[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+
+サポート・お問い合わせは上記メールアドレスまでご連絡ください。返信は通常 1 週間以内に行います。
+
+Response time: typically within 1 week.
 
 ## 関連リンク
 
