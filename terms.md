@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service
 
-**Last updated: May 13, 2026**
+**Last updated: July 22, 2026**
 
 These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Kohei Omori ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
 
@@ -31,16 +31,18 @@ We grant you a non-exclusive, non-transferable license to use the App on your iO
 
 ### 4.1 Pricing plans
 
-The App offers the following plans. Prices follow App Store Connect settings and are displayed in local currency. **No subscriptions or auto-renewing plans are offered**.
+The App is a paid, one-time-purchase application. Prices follow App Store Connect settings and are displayed in local currency. **No subscriptions or auto-renewing plans are offered**, and **there is no free tier for continued use**.
 
-| Plan | Description | Price (US) |
+| How you obtain the App | Description | Price (US) |
 |------|-------------|-----------|
-| Free | Up to 3 video exports | $0 |
-| Lifetime (one-time) | All features unlocked, unlimited processing (includes 4K high-quality model, queue up to 10, future model updates) | $6.99 (tax included) — one-time |
+| Purchasing the App on the App Store | All features available | $1.99 (tax included) — one-time |
+| In-app purchase (Lifetime) | For users who obtained the App for free before it became a paid app, to continue using all features | $1.99 (tax included) — one-time |
+
+Users who obtained the App for free before it became a paid app cannot use the App's features until they complete the in-app purchase. Users who have already completed the in-app purchase retain access to all features at no additional cost.
 
 ### 4.2 Payment
 
-Payments are processed through your Apple ID's payment method. We do not handle payment information directly. The Lifetime plan is a **single one-time purchase** with no auto-renewal.
+Payments are processed through your Apple ID's payment method. We do not handle payment information directly. Both the App purchase and the in-app purchase are a **single one-time purchase** with no auto-renewal.
 
 ### 4.3 Refunds
 
@@ -48,7 +50,7 @@ Refund requests must be made through **Apple Support**. We follow Apple's decisi
 
 ### 4.4 Price changes
 
-We may change prices in the future. Changes apply only to new purchases and do not affect existing Lifetime users' rights.
+We may change prices in the future. Changes apply only to new purchases and do not affect existing users' rights.
 
 ## 5. Intellectual Property
 
@@ -81,7 +83,7 @@ The App is provided "as is", and we do not warrant the **completeness, accuracy,
 
 ### 7.2 Limitation of liability
 
-In the event of damages caused by our fault, our liability is limited to the amount you have paid us in the 12 months preceding the damage. If you used the App for free, we shall have no liability.
+In the event of damages caused by our fault, our liability is limited to the amount you paid for the App or for the in-app purchase.
 
 However, this limitation does not apply to damages caused by our willful misconduct or gross negligence.
 
