@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service
 
-**Last updated: August 17, 2026**
+**Last updated: August 21, 2026**
 
 These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Kohei Omori ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
 
@@ -35,7 +35,7 @@ The App is a paid, one-time-purchase application. Prices follow App Store Connec
 
 | How you obtain the App | Description | Price (US) |
 |------|-------------|-----------|
-| Purchasing the App on the App Store | All features available | $9.99 (tax included) — one-time |
+| Purchasing the App on the App Store | All features available | $1.99 (tax included) — one-time |
 | In-app purchase (Lifetime) | For users who obtained the App for free before it became a paid app, to continue using all features | $1.99 (tax included) — one-time |
 
 Users who obtained the App for free before it became a paid app cannot use the App's features until they complete the in-app purchase. Users who have already completed the in-app purchase retain access to all features at no additional cost.
