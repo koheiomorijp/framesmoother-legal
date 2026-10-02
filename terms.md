@@ -1,112 +1,90 @@
 ---
 layout: default
-title: Terms of Service
+title: FrameSmoother Terms of Service
 ---
 
-# Terms of Service
+# FrameSmoother Terms of Service
 
-**Last updated: August 21, 2026**
+Effective date: **October 2, 2026** · [日本語](./terms-ja)
 
-These Terms of Service ("Terms") govern your use of the iOS application "**FrameSmoother**" ("App") provided by Kohei Omori ("Company", "we", "us", or "our"). By downloading or using the App, you ("User", "you") are deemed to have agreed to these Terms.
+This is the agreement between you and Kohei Omori, a sole proprietor based in Japan (the "Developer"), for the iPhone app FrameSmoother (the "App"). Downloading, installing or opening the App counts as accepting it. If you cannot accept it, please do not use the App; Part B explains how refunds work.
 
----
-
-## 1. Scope
-
-These Terms apply to all relationships between us and the User regarding the App. The App is distributed through Apple Inc.'s App Store, and Apple's "**Licensed Application End User License Agreement**" ("Apple Standard EULA", https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) also applies. In case of conflict between these Terms and the Apple Standard EULA, the Apple Standard EULA prevails.
-
-## 2. System requirements
-
-The App requires iOS 16.0 or later and is recommended for iPhone 13 or later. Operation outside these environments is not guaranteed.
-
-## 3. License
-
-We grant you a non-exclusive, non-transferable license to use the App on your iOS device for personal, non-commercial purposes. You may not:
-
-- Reverse engineer, decompile, or disassemble the App
-- Modify, copy, redistribute, lend, lease, or sell the App
-- Sublicense the App to any third party
-
-## 4. Purchases (One-Time)
-
-### 4.1 Pricing plans
-
-The App is a paid, one-time-purchase application. Prices follow App Store Connect settings and are displayed in local currency. **No subscriptions or auto-renewing plans are offered**, and **there is no free tier for continued use**.
-
-| How you obtain the App | Description | Price (US) |
-|------|-------------|-----------|
-| Purchasing the App on the App Store | All features available | $1.99 (tax included) — one-time |
-| In-app purchase (Lifetime) | For users who obtained the App for free before it became a paid app, to continue using all features | $1.99 (tax included) — one-time |
-
-Users who obtained the App for free before it became a paid app cannot use the App's features until they complete the in-app purchase. Users who have already completed the in-app purchase retain access to all features at no additional cost.
-
-### 4.2 Payment
-
-Payments are processed through your Apple ID's payment method. We do not handle payment information directly. Both the App purchase and the in-app purchase are a **single one-time purchase** with no auto-renewal.
-
-### 4.3 Refunds
-
-Refund requests must be made through **Apple Support**. We follow Apple's decisions. Apple's refund policy is available at https://support.apple.com/HT204084.
-
-### 4.4 Price changes
-
-We may change prices in the future. Changes apply only to new purchases and do not affect existing users' rights.
-
-## 5. Intellectual Property
-
-### 5.1 Our IP
-
-Copyrights, trademarks, and other intellectual property rights in the App and its content belong to us or our licensors.
-
-### 5.2 Your content
-
-Rights to videos you process with the App belong to you. Since the App does not transmit videos outside your device, we cannot access your content.
-
-### 5.3 Open Source Software
-
-The App includes open source software. License details are available in the "Open Source Licenses" section within the App's "Settings" screen.
-
-## 6. Prohibited Activities
-
-You may not engage in the following activities while using the App:
-
-- Use the App for illegal activities or to infringe upon others' rights
-- Interfere with the App's operation
-- Process and distribute copyrighted content of third parties without the rights holder's permission
-- Any other activities we deem inappropriate
-
-## 7. Disclaimers
-
-### 7.1 Service warranty
-
-The App is provided "as is", and we do not warrant the **completeness, accuracy, or fitness for a particular purpose** of the App.
-
-### 7.2 Limitation of liability
-
-In the event of damages caused by our fault, our liability is limited to the amount you paid for the App or for the in-app purchase.
-
-However, this limitation does not apply to damages caused by our willful misconduct or gross negligence.
-
-### 7.3 Output quality
-
-The quality of interpolation processing depends on the characteristics of the input video. We do not guarantee that expected quality will be achieved for all videos.
-
-## 8. Service changes and termination
-
-We may change, add, or remove App features without prior notice. If we terminate the App, we will notify users via the App or this page to the extent possible.
-
-## 9. Changes to these Terms
-
-We may modify these Terms as necessary. The revised Terms take effect when posted within the App or on this page.
-
-## 10. Governing law and jurisdiction
-
-These Terms are governed by **the laws of Japan**. Any disputes regarding the App shall be subject to the exclusive jurisdiction of the **Tokyo District Court** as the court of first instance.
-
-## 11. Contact
-
-For inquiries about these Terms, please contact [konpei.work@gmail.com](mailto:konpei.work@gmail.com).
+**Contents** — A. Ground rules · B. Price and payment · C. Your footage and the Developer's work · D. Warranties and liability · E. Changes · F. Applicable law · G. Contact
 
 ---
 
-[← Home](./)
+## A. Ground rules
+
+**A-1 Relationship with Apple's licence.** This document applies to every dealing between you and the Developer that concerns the App. Because you obtain the App from Apple's App Store, Apple's [Licensed Application End User License Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) (the "Standard EULA") governs it as well. Wherever the two disagree, the Standard EULA takes priority.
+
+**A-2 Supported devices.** The App needs an iPhone on iOS 16.0 or newer. It is designed for iPhone 13 and later models; earlier iPhones may install it, but correct operation there is not promised. On models with less memory, the App applies tighter limits on the resolution of the videos it accepts.
+
+**A-3 What the licence allows.** The Developer lets you run the App on Apple-branded devices you own or control, for your own non-commercial purposes. The licence is non-exclusive and cannot be transferred. It does not allow you to:
+
+- take it apart by decompiling, disassembling or reverse-engineering it;
+- alter, duplicate or redistribute it, or rent out, lease, lend or sell copies of it;
+- grant any sublicence to another person.
+
+**A-4 Conduct.** In your use of FrameSmoother you must not:
+
+- break the law with it, or use it to infringe anyone's rights;
+- disrupt or interfere with how the App works;
+- edit footage whose copyright belongs to someone else and hand the result to others without consent from whoever owns that copyright;
+- do anything else the Developer judges to be inappropriate.
+
+## B. Price and payment
+
+**B-1 One payment, then nothing more.** FrameSmoother is sold once. It has no subscription, nothing renews automatically, and there is no free tier for ongoing use. Prices are set in App Store Connect and shown in each storefront's own currency.
+
+| Your situation | What you pay | Japan | United States |
+|---|---|---|---|
+| You buy FrameSmoother on the App Store | The App's price, once; every feature is included | ¥300 | US$1.99 |
+| You downloaded FrameSmoother while it was still free (before it became a paid app in July 2026) | The in-app purchase "Lifetime" (`com.naruberio.framesmoother.lifetime`), once | ¥300 | US$1.99 |
+| You already bought "Lifetime" | Nothing further | — | — |
+
+The Japanese price includes consumption tax. In the United States and some other storefronts, sales tax may be added at checkout. Other storefronts charge the amount Apple converts from these prices.
+
+If you got the App while it was free, its features stay locked behind an unlock screen until "Lifetime" is purchased. That single purchase opens every feature; buying the App itself again is unnecessary.
+
+**B-2 How payment works.** Apple charges the payment method on your Apple Account. Card numbers and billing details never reach the Developer. Neither the App purchase nor "Lifetime" renews or charges again. To bring "Lifetime" back on a new or reset iPhone, sign in with the same Apple Account and tap *Restore Purchases* on the unlock screen or in Settings.
+
+**B-3 Refunds.** Whether money is returned is decided by Apple, not by the Developer. Request a refund at [reportaproblem.apple.com](https://reportaproblem.apple.com/); Apple describes the process in [Request a refund for apps or content that you bought from Apple](https://support.apple.com/118223). The Developer accepts whatever Apple decides. If the App is misbehaving, email the address in Part G as well, so the Developer can look into the problem.
+
+**B-4 Future price changes.** Prices may change later. A new price affects only purchases made after the change; it takes nothing away from what you have already bought.
+
+## C. Your footage and the Developer's work
+
+**C-1 Your videos.** Anything you process with FrameSmoother remains yours. All processing happens on your iPhone and no video is sent off the device, so the Developer has no access to your footage. The App writes its output as a new file and leaves the original untouched.
+
+**C-2 The App itself.** Copyright, trademarks and every other intellectual property right in FrameSmoother — its code, design, name, icon and other material — belong to the Developer or to the parties who licensed them.
+
+**C-3 Open-source components.** The App contains open-source software, including the RIFE frame-interpolation model. The licence for each component is listed under Settings → Open Source Licenses inside the App.
+
+## D. Warranties and liability
+
+**D-1 Provided as it is.** The App is supplied "as is". The Developer does not guarantee that it is complete or accurate, nor that it fits any particular purpose.
+
+**D-2 Results vary.** How good an interpolated video looks depends on the source: fast motion, objects crossing each other, low light and heavy compression can all produce visible artefacts. The Developer does not promise that every video will reach the quality you expect.
+
+**D-3 Cap on liability.** If you suffer loss for which the Developer is at fault, the Developer's liability is capped at the amount you had paid for the App or for "Lifetime" at the moment the loss arose. This cap does not cover loss caused by the Developer's intentional misconduct or gross negligence.
+
+## E. Changes
+
+**E-1 Changes to the App.** Features may be modified, added or removed without advance notice. Should the App be discontinued, the Developer will announce it beforehand in the App or on this page whenever that is possible.
+
+**E-2 Changes to this document.** The Developer may revise these terms when needed. A revised version takes effect as soon as it appears in the App or on this page, and the effective date above is updated with it.
+
+## F. Applicable law
+
+Japanese law governs these terms. Every dispute concerning the App will be heard first by the **Tokyo District Court**, which the parties agree has exclusive jurisdiction at first instance.
+
+## G. Contact
+
+Kohei Omori (sole proprietor, Japan)<br>
+[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+
+The seller details required by Japan's Act on Specified Commercial Transactions appear at the end of the [Japanese version](./terms-ja).
+
+---
+
+[Legal pages home](./) · [Privacy Policy](./privacy)

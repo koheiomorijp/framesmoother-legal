@@ -1,86 +1,84 @@
 ---
 layout: default
-title: Privacy Policy
+title: FrameSmoother Privacy Policy
 ---
 
-# Privacy Policy
+# FrameSmoother Privacy Policy
 
-**Last updated: May 12, 2026**
+Effective date: **October 2, 2026** · [日本語](./privacy-ja)
 
-Kohei Omori (a sole proprietor, hereinafter the "Operator", "we", "us", or "our") provides this Privacy Policy to explain how we handle your information in the iOS application "**FrameSmoother**" (the "App").
+This policy covers FrameSmoother, an iPhone app that generates in-between frames so that motion in a video looks smoother. It is issued by Kohei Omori, a sole proprietor in Japan who develops and sells the app; "I" and "me" below mean him. Instead of listing data categories, the policy takes each party that could conceivably see something and states what, if anything, reaches them.
 
----
+## Who sees what
 
-## 1. Core principle
+| Party | What reaches them | When |
+|---|---|---|
+| Your iPhone | Everything you work on: the clips you pick, the frames the app creates, the finished files, your preferences | Always. Processing does not leave the device |
+| Apple | Purchase and ownership checks made through StoreKit; crash data only if you allow it in iOS | At launch, and when you buy or restore |
+| Me, the developer | Sales totals from App Store Connect; reviews you post on the App Store; your message if you email me; Apple's crash data if you allow it | Only in those four cases |
+| Apps and services you share to | The finished file you hand them | When you use the share sheet |
+| Anyone else | Nothing | — |
 
-The App performs **all video processing entirely on your device**. Video files you select and processing results are never transmitted to our servers or any third-party servers. We do **not collect personal information** through the App.
+### Your iPhone
 
-## 2. Information we collect
+You choose clips in Apple's photo picker, and FrameSmoother receives only the files you tick there. Each picked file is copied into a temporary folder that only FrameSmoother can open, inside the iPhone's app sandbox. A Core ML model bundled with the app, based on the open-source RIFE project, builds the new frames from that copy without any network connection. The finished video is written as a separate file; your original in Photos is never altered.
 
-The App does not collect any personal information, as detailed below.
+### Apple
 
-| Information category | Collected? | Reason |
-|---------------------|:---------:|--------|
-| Name, email, contact info | ✗ Not collected | No account features |
-| Video files, photos | ✗ Not collected | On-device processing only, no external transmission |
-| Location data | ✗ Not collected | Not required by functionality |
-| Device identifiers, advertising IDs | ✗ Not collected | No tracking |
-| Usage history, operation logs | ✗ Not collected | No analytics |
-| Crash reports | ✗ Not collected | Not supported in v1.0 (under consideration for v1.1+, separate notice will be issued) |
+Every exchange with Apple goes through the StoreKit framework, and the app opens no other connection. At launch, StoreKit reports which build of FrameSmoother you first downloaded and whether your Apple Account owns the Lifetime unlock; that answer decides whether the unlock screen is shown. Buying or restoring is likewise completed between StoreKit and the App Store. Card numbers, billing addresses and Apple Account details stay with Apple, which handles them under the [Apple Privacy Policy](https://www.apple.com/legal/privacy/).
 
-We declare "No Data Collected" in the App Privacy Manifest (`PrivacyInfo.xcprivacy`) to Apple.
+### Me, the developer
 
-## 3. Permissions used on device
+App Store Connect gives me aggregated figures such as unit counts, countries and proceeds. It does not tell me who bought the app. If you post a review on the App Store, I read its nickname, country and text just as other visitors can, and I may reply to it through App Store Connect. If you email the support address, your email address, your message and any attachments arrive in my mailbox. I use them only to handle your enquiry and to investigate, fix and improve the app, and I neither add you to a mailing list nor forward your message to anyone. As a record of what was done, I may keep a summary with your name and email address removed in the issue tracker I use for development. Apple may also send me crash data and usage statistics for FrameSmoother, but only when you have enabled the iOS option described under "Permissions and switches" below; those reports are produced by iOS, not by the app. Nothing in the app or in iOS sends me your videos, file names or settings, apart from anything you attach to an email yourself.
 
-The App uses only the following standard iOS permissions, with your explicit grant.
+### Apps and services you share to
 
-| Permission | Purpose | Info.plist key |
-|-----------|---------|---------------|
-| Add to Photos | To save interpolated video output to your Photos library | `NSPhotoLibraryAddUsageDescription` |
+Sending a finished video through the iOS share sheet gives it to whichever app or service you pick, and from then on that destination's own privacy terms apply. The links in the app to this policy, the terms, the open-source licences and support open in Safari or your mail app. This site is served by GitHub Pages, so visits to it fall under [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-We do **not request read access to your photo library**. Video selection uses Apple's PHPicker (photo picker), which exposes only the videos you explicitly select to the App.
+### Anyone else
 
-## 4. Communication with third parties
+FrameSmoother contains no third-party code for analytics, advertising, attribution or crash collection, and it offers no account or sign-in. Its privacy manifest (`PrivacyInfo.xcprivacy`) declares no tracking and no collected data types, and the App Store privacy label reads "Data Not Collected".
 
-The App does not communicate over the network **except** for the following.
+## Permissions and switches you control
 
-| Recipient | Purpose | Information transmitted |
-|-----------|---------|------------------------|
-| Apple StoreKit / App Store servers | In-app purchases (one-time only) | Billing information managed automatically by Apple. We do not access this information. |
+| Control | Where you set it | What it does |
+|---|---|---|
+| Photos: "Add Photos Only" (`NSPhotoLibraryAddUsageDescription`) | Asked by iOS the first time you save; change it later in iOS Settings → Privacy & Security → Photos | Lets the app place new videos in your library. It cannot read what is already there. Without it, finished files can still be shared |
+| Auto-save to Photos | FrameSmoother → Settings. Off until you switch it on | Saves each finished video to Photos automatically |
+| Share With App Developers | iOS Settings → Privacy & Security → Analytics & Improvements | Decides whether Apple passes crash data and usage statistics for the app on to me |
+| Ask to Buy / purchase limits | Family Sharing, or Screen Time | Lets a parent approve or block purchases |
 
-No third-party analytics services (Google Analytics, Firebase, etc.), advertising SDKs, or crash reporting services are integrated into the App.
+FrameSmoother never asks to browse your photo library, so items you do not pick stay out of its reach.
 
-## 5. In-App Purchases
+## How long things last
 
-The App offers digital content through Apple's App Store In-App Purchase (IAP) feature. Billing and payment information are handled **directly by Apple**, and we cannot access payment details (credit card numbers, etc.).
+| Item | Kept until |
+|---|---|
+| Working copy of a clip you picked, and a finished output inside the app | iOS clears the app's temporary folder, or you delete the app. Copies you saved to Photos or shared are then yours to manage |
+| Unfinished output of a job you stopped | Deleted when you stop the job |
+| Preferences (default frame rate, file format, export quality, file-name prefix, auto-save, completion notice) and the flag that the intro screens were seen | You change them in Settings, or delete the app |
+| Speed figures under Settings → Diagnostics | "Reset Samples", or the app quits. They are held in memory only |
+| Short technical messages in iOS's on-device log, such as a failed export or a purchase that could not be verified | iOS rotates them. The app never transmits them; they reach me only if you export a diagnostic report yourself and send it |
+| Whether you have paid | Never stored by the app. StoreKit is asked each time, so refunds and restores take effect correctly |
+| Emails you send me | Until you ask me to delete them. The summaries kept in my issue tracker leave out your name and email address |
 
-For more information, please refer to Apple's Privacy Policy (https://www.apple.com/legal/privacy/).
+## Children
 
-## 6. Children's use
+FrameSmoother is rated 4+. No part of it gathers information from anyone, children included. Because the app is paid, parents of children under 13 may want to turn on Ask to Buy or set purchase limits, as listed above.
 
-The App is rated 4+, but for in-app purchases by children under 13, we recommend parents use Apple ID parental controls (Family Sharing, Screen Time) to manage usage.
+## Requests about your data
 
-## 7. Your rights
+The app sends me nothing, so I hold no app data about you that could be shown, corrected or erased. Emails are the exception: on request I delete them from my mailbox and remove anything that could identify you from the records in my issue tracker. Anything on the iPhone itself disappears when FrameSmoother is deleted.
 
-Since the App does not collect your information, we do not hold any data subject to disclosure or deletion requests.
+## Revisions
 
-The following information stored on your device can be deleted by you through iOS Settings or the App's "Settings" screen:
+A change in the law or in what the app does may require this policy to change. The effective date at the top moves with each revision, and important changes will be announced in the app or on this page. Should the app ever start collecting anything, this page will say so before the version that does it is released.
 
-- App settings (default interpolation factor, filename prefix, etc.)
-- Free export counter
-- Temporary files from interpolation processing (automatically deleted within 100ms of completion or cancellation)
+## Contact
 
-## 8. Changes to this Policy
-
-This Policy may be revised due to legal changes or feature updates to the App. Significant changes will be notified within the App or on this page.
-
-## 9. Contact
-
-For inquiries regarding this Policy or how the App is operated, please contact:
-
-- **Entity**: Kohei Omori
-- **Email**: [konpei.work@gmail.com](mailto:konpei.work@gmail.com)
+Kohei Omori (sole proprietor, Japan)<br>
+[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
 
 ---
 
-[← Home](./)
+[Legal pages home](./) · [Terms of Service](./terms)
