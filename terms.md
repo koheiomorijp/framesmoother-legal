@@ -19,7 +19,7 @@ This is the agreement between you and Kohei Omori, a sole proprietor based in Ja
 
 **A-2 Supported devices.** The App needs an iPhone on iOS 16.0 or newer. It is designed for iPhone 13 and later models; earlier iPhones may install it, but correct operation there is not promised. On models with less memory, the App applies tighter limits on the resolution of the videos it accepts.
 
-**A-3 What the licence allows.** The Developer lets you run the App on iPhones you own or control, for your own non-commercial purposes. The licence is non-exclusive and cannot be transferred. It does not allow you to:
+**A-3 What the licence allows.** The Developer lets you run the App on Apple-branded devices you own or control, for your own non-commercial purposes. The licence is non-exclusive and cannot be transferred. It does not allow you to:
 
 - take it apart by decompiling, disassembling or reverse-engineering it;
 - alter, duplicate or redistribute it, or rent out, lease, lend or sell copies of it;
@@ -42,13 +42,13 @@ This is the agreement between you and Kohei Omori, a sole proprietor based in Ja
 | You downloaded FrameSmoother while it was still free (before it became a paid app in July 2026) | The in-app purchase "Lifetime" (`com.naruberio.framesmoother.lifetime`), once | ¥300 | US$1.99 |
 | You already bought "Lifetime" | Nothing further | — | — |
 
-Prices include tax. Other storefronts charge the amount Apple converts from these prices.
+The Japanese price includes consumption tax. In the United States and some other storefronts, sales tax may be added at checkout. Other storefronts charge the amount Apple converts from these prices.
 
 If you got the App while it was free, its features stay locked behind an unlock screen until "Lifetime" is purchased. That single purchase opens every feature; buying the App itself again is unnecessary.
 
 **B-2 How payment works.** Apple charges the payment method on your Apple Account. Card numbers and billing details never reach the Developer. Neither the App purchase nor "Lifetime" renews or charges again. To bring "Lifetime" back on a new or reset iPhone, sign in with the same Apple Account and tap *Restore Purchases* on the unlock screen or in Settings.
 
-**B-3 Refunds.** Whether money is returned is decided by Apple, not by the Developer. Request a refund at [reportaproblem.apple.com](https://reportaproblem.apple.com/); Apple describes the process in [Request a refund for apps or content that you bought from Apple](https://support.apple.com/118223). The Developer accepts whatever Apple decides. If the App is misbehaving, email the address in Part G as well, so the fault can be fixed.
+**B-3 Refunds.** Whether money is returned is decided by Apple, not by the Developer. Request a refund at [reportaproblem.apple.com](https://reportaproblem.apple.com/); Apple describes the process in [Request a refund for apps or content that you bought from Apple](https://support.apple.com/118223). The Developer accepts whatever Apple decides. If the App is misbehaving, email the address in Part G as well, so the Developer can look into the problem.
 
 **B-4 Future price changes.** Prices may change later. A new price affects only purchases made after the change; it takes nothing away from what you have already bought.
 

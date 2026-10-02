@@ -15,7 +15,7 @@ This policy covers FrameSmoother, an iPhone app that generates in-between frames
 |---|---|---|
 | Your iPhone | Everything you work on: the clips you pick, the frames the app creates, the finished files, your preferences | Always. Processing does not leave the device |
 | Apple | Purchase and ownership checks made through StoreKit; crash data only if you allow it in iOS | At launch, and when you buy or restore |
-| Me, the developer | Sales totals from App Store Connect; your message if you email me; Apple's crash data if you allow it | Only in those three cases |
+| Me, the developer | Sales totals from App Store Connect; reviews you post on the App Store; your message if you email me; Apple's crash data if you allow it | Only in those four cases |
 | Apps and services you share to | The finished file you hand them | When you use the share sheet |
 | Anyone else | Nothing | — |
 
@@ -29,7 +29,7 @@ Every exchange with Apple goes through the StoreKit framework, and the app opens
 
 ### Me, the developer
 
-App Store Connect gives me aggregated figures such as unit counts, countries and proceeds. It does not tell me who bought the app. If you email the support address, your email address, your message and any attachments arrive in my mailbox. I use them only to answer you and to fix what you report, and I neither add you to a mailing list nor forward your message to anyone. Apple may also send me crash data and usage statistics for FrameSmoother, but only when you have enabled the iOS option described under "Permissions and switches" below; those reports are produced by iOS, not by the app. Your videos, file names and settings never reach me.
+App Store Connect gives me aggregated figures such as unit counts, countries and proceeds. It does not tell me who bought the app. If you post a review on the App Store, I read its nickname, country and text just as other visitors can, and I may reply to it through App Store Connect. If you email the support address, your email address, your message and any attachments arrive in my mailbox. I use them only to handle your enquiry and to investigate, fix and improve the app, and I neither add you to a mailing list nor forward your message to anyone. As a record of what was done, I may keep a summary with your name and email address removed in the issue tracker I use for development. Apple may also send me crash data and usage statistics for FrameSmoother, but only when you have enabled the iOS option described under "Permissions and switches" below; those reports are produced by iOS, not by the app. Nothing in the app or in iOS sends me your videos, file names or settings, apart from anything you attach to an email yourself.
 
 ### Apps and services you share to
 
@@ -60,7 +60,7 @@ FrameSmoother never asks to browse your photo library, so items you do not pick 
 | Speed figures under Settings → Diagnostics | "Reset Samples", or the app quits. They are held in memory only |
 | Short technical messages in iOS's on-device log, such as a failed export or a purchase that could not be verified | iOS rotates them. The app never transmits them; they reach me only if you export a diagnostic report yourself and send it |
 | Whether you have paid | Never stored by the app. StoreKit is asked each time, so refunds and restores take effect correctly |
-| Emails you send me | Until you ask me to delete them |
+| Emails you send me | Until you ask me to delete them. The summaries kept in my issue tracker leave out your name and email address |
 
 ## Children
 
@@ -68,7 +68,7 @@ FrameSmoother is rated 4+. No part of it gathers information from anyone, childr
 
 ## Requests about your data
 
-The app sends me nothing, so I hold no app data about you that could be shown, corrected or erased. Emails are the exception and will be deleted on request. Anything on the iPhone itself disappears when FrameSmoother is deleted.
+The app sends me nothing, so I hold no app data about you that could be shown, corrected or erased. Emails are the exception: on request I delete them from my mailbox and remove anything that could identify you from the records in my issue tracker. Anything on the iPhone itself disappears when FrameSmoother is deleted.
 
 ## Revisions
 
