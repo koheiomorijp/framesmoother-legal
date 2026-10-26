@@ -6,10 +6,16 @@ iOS アプリ「FrameSmoother」のプライバシーポリシー・利用規約
 
 ## 公開 URL
 
-GitHub Pages 有効化後、以下の URL で公開されます:
+独自ドメイン `framesmoother.naruberio.com` で公開している（KAN-1085。`CNAME`・`_config.yml` の `url`。DNS は naruberio-site の NaruberioAppPages）。
+旧 URL（`https://koheiomorijp.github.io/framesmoother-legal/…`）は GitHub が同じパスへ 301 で転送するので（https への転送は Pages の「Enforce HTTPS」が有効なときだけ。切り替え後に `https_enforced` を確かめる）、アプリと App Store Connect の URL は変えていない。
 
-- プライバシーポリシー: https://koheiomorijp.github.io/framesmoother-legal/privacy
-- 利用規約: https://koheiomorijp.github.io/framesmoother-legal/terms
+- `sitemap.xml` は jekyll-sitemap が作る。`robots.txt` がその在りかを示し、Search Console（ドメインのプロパティ `naruberio.com`）と
+  Bing Webmaster Tools に登録する
+
+公開 URL:
+
+- プライバシーポリシー: https://framesmoother.naruberio.com/privacy
+- 利用規約: https://framesmoother.naruberio.com/terms
 
 ## 言語
 
