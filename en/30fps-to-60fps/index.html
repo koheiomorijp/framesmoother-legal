@@ -1,0 +1,124 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>30fps to 60fps on iPhone, compared frame by frame · FrameSmoother</title>
+<meta name="description" content="What it takes to turn a 30fps video into 60fps on iPhone: real frames from FrameSmoother's on-device interpolation, the numbers before and after, and the steps in the app.">
+<!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの en の表示と一字一句そろえる。
+     数字は frame-smoother-app の marketing/real-output/source（KAN-997 の CI の実出力）から測った値。価格・課金の形・運営者名は書かない -->
+<link rel="canonical" href="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<link rel="alternate" hreflang="en" href="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<link rel="alternate" hreflang="ja" href="https://framesmoother.naruberio.com/ja/30fps-to-60fps/">
+<link rel="alternate" hreflang="x-default" href="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30fps to 60fps on iPhone, compared frame by frame">
+<meta property="og:description" content="Real frames, measured positions and the steps in FrameSmoother.">
+<meta property="og:url" content="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc">frame notes</span></a>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="../../ja/30fps-to-60fps/" hreflang="ja" lang="ja">日本語</a></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">30 fps</span> → 60 fps</p>
+  <h1>30fps to 60fps on iPhone, compared frame by frame</h1>
+  <p class="lead">A 30fps video changes picture every 33.3 ms. To play at 60fps, a new picture has to exist halfway between every pair of frames. FrameSmoother computes that picture on the iPhone with an AI frame-interpolation model, reuses the original frames between the new ones, and saves a 60fps video. Nothing is uploaded.</p>
+  <div class="readout">
+    <div><b>33.3 → 16.7 ms</b><span>time each picture stays on screen</span></div>
+    <div><b>1 per pair</b><span>new frame between two original frames</span></div>
+    <div><b>0 uploads</b><span>the work happens on the iPhone</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue"><b>01</b>Frame by frame</p>
+    <h2 id="s1">The frame that wasn't there</h2>
+    <p>Three consecutive frames from a real conversion. The source is a 2-second, 1280×720 test clip at 30fps; it went through FrameSmoother's processing with the <span class="ui">High Quality</span> setting and a <span class="ui">60fps</span> target. The middle frame does not exist in the source. The solid line marks the centre of the orange ball; the dotted lines show where it was in the frames before and after.</p>
+    <div class="frames">
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-13.png" width="320" height="400" alt="Source frame 13: orange ball near the left, blue ball near the right" loading="lazy"><span class="guide" style="left:29.0%"></span></div>
+        <figcaption><span class="tag">source #13</span><span class="num">x = 572.8 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot is-made"><img src="../../assets/frames/30to60-generated.png" width="320" height="400" alt="Generated frame: both balls sit between their positions in frames 13 and 14" loading="lazy"><span class="guide ghost" style="left:29.0%"></span><span class="guide" style="left:34.0%"></span><span class="guide ghost" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">generated</span><span class="num">x = 588.9 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-14.png" width="320" height="400" alt="Source frame 14: orange ball further right, blue ball further left" loading="lazy"><span class="guide" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">source #14</span><span class="num">x = 606.2 px</span></figcaption>
+      </figure>
+    </div>
+    <div class="track" role="img" aria-label="Orange ball centre: 572.8 px in frame 13, 588.9 px in the generated frame, 606.2 px in frame 14. The exact midpoint is 589.5 px.">
+      <span class="axis"></span>
+      <span class="end" style="left:0%">560</span><span class="end" style="left:100%">620 px</span>
+      <span class="pt" style="left:21.3%"></span><span class="lbl up src" style="left:21.3%">#13 572.8</span>
+      <span class="mid" style="left:49.2%"></span><span class="lbl down" style="left:49.2%">midpoint 589.5</span>
+      <span class="pt made" style="left:48.2%"></span><span class="lbl up made" style="left:48.2%">new 588.9</span>
+      <span class="pt" style="left:77%"></span><span class="lbl up src" style="left:77%">#14 606.2</span>
+    </div>
+    <p class="note">Measured centres (pixel average of each ball): orange 572.8 → <span class="made">588.9</span> → 606.2, against an exact midpoint of 589.5. Blue 726.8 → <span class="made">705.3</span> → 683.4, midpoint 705.1. This test ran in the iOS Simulator on the CPU; on an iPhone the model normally uses the GPU, so results can differ slightly.</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue"><b>02</b>In numbers</p>
+    <h2 id="s2">The same clip, before and after</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">2-second test clip</th><th scope="col" class="n src">source</th><th scope="col" class="n made">after</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Pictures per second</th><td class="n">30</td><td class="n made">60</td></tr>
+          <tr><th scope="row">Frames in the file</th><td class="n">60</td><td class="n made">119</td></tr>
+          <tr><th scope="row">Time between pictures</th><td class="n">33.3 ms</td><td class="n made">16.7 ms</td></tr>
+          <tr><th scope="row">Frames computed by the model</th><td class="n">–</td><td class="n made">59</td></tr>
+          <tr><th scope="row">Original frames reused</th><td class="n">–</td><td class="n made">60</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Why 119 and not 120: the last original frame has nothing after it to interpolate toward, so the file ends on it.</p>
+    <div class="clip">
+      <video src="../../assets/frames/30to60-stacked.mp4" poster="../../assets/frames/30to60-stacked-poster.png" width="640" height="720" autoplay muted loop playsinline controls aria-label="Looping comparison: the 30fps source on top, the 60fps output below"></video>
+      <span class="tag top">source · 30 fps</span>
+      <span class="tag bottom">after · 60 fps</span>
+    </div>
+    <p class="note">Top: the source, each frame shown twice so both halves play at the same speed. Bottom: FrameSmoother's 60fps output of the same clip. On a screen that refreshes at 60Hz or faster, the lower ball moves in steps half as large.</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue"><b>03</b>On the iPhone</p>
+    <h2 id="s3">Making a 60fps copy in FrameSmoother</h2>
+    <ol class="ops">
+      <li><span class="where">Home</span><p class="do">Tap <span class="ui">Select Video</span> and pick one or more videos from your library.</p></li>
+      <li><span class="where">Interpolation Setup › Output Frame Rate</span><p class="do">Leave <span class="ui">Target fps</span> selected and choose <span class="ui">60fps</span>. The line underneath shows what you will get, for example <span class="ui">Output: 60 fps</span>.</p></li>
+      <li><span class="where">Interpolation Quality</span><p class="do"><span class="ui">High Quality</span> uses the AI model. <span class="ui">Fast</span> blends neighbouring frames without AI and finishes sooner.</p></li>
+      <li><span class="where">top right</span><p class="do">Tap <span class="ui">Add to Queue</span>. The <span class="ui">Queue</span> opens and shows the progress and the estimated time left.</p></li>
+      <li><span class="where">Queue</span><p class="do">When the row says <span class="ui">Completed</span>, tap it to open the preview: drag the divider to compare before and after, or step one frame at a time. Back in the queue, save it with the download-arrow button on the row, or share it with the share button (AirDrop and other apps).</p></li>
+    </ol>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-60fps-en&amp;mt=8">
+    <span><b>FrameSmoother on the App Store</b><small>iPhone</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s4">
+    <p class="cue"><b>04</b>More comparisons</p>
+    <h2 id="s4">Other jobs, same method</h2>
+    <div class="next">
+      <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>Slow motion from a normal-speed video, without the stutter</span></a>
+      <a href="../anime-duplicate-frames/"><span class="tc">on twos → 60 fps</span><span>Anime drawn on twos or threes: drop the repeats, then fill the gaps</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">Help and contact</a> · <a href="../../privacy">Privacy Policy</a> · <a href="../../terms">Terms of Service</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>2 コマ打ち・3 コマ打ちのアニメを 60fps に（iPhone）：重複コマを除いて間を埋める · FrameSmoother</title>
+<meta name="description" content="2 コマ打ち・3 コマ打ちのアニメを普通に補間すると「止まって跳ぶ」理由と、ぬるぬるの 60fps にするための FrameSmoother の「重複コマを除く」が何を重複とみなすか。iPhone での手順。">
+<!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの ja の表示と一字一句そろえる。
+     判定の数字は DuplicateFrameFilter / DuplicateFrameCriteria（FR-02-15）の値。図は模式図（実出力ではない）と明記する -->
+<link rel="canonical" href="https://framesmoother.naruberio.com/ja/anime-duplicate-frames/">
+<link rel="alternate" hreflang="en" href="https://framesmoother.naruberio.com/en/anime-duplicate-frames/">
+<link rel="alternate" hreflang="ja" href="https://framesmoother.naruberio.com/ja/anime-duplicate-frames/">
+<link rel="alternate" hreflang="x-default" href="https://framesmoother.naruberio.com/en/anime-duplicate-frames/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2 コマ打ち・3 コマ打ちのアニメを 60fps に（iPhone）：重複コマを除いて間を埋める">
+<meta property="og:description" content="普通の補間が同じ絵の繰り返しをどう扱うかと、FrameSmoother のアニメの設定がどう扱うか。">
+<meta property="og:url" content="https://framesmoother.naruberio.com/ja/anime-duplicate-frames/">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc" lang="en">frame notes</span></a>
+  <nav class="lang" aria-label="言語"><a href="../../en/anime-duplicate-frames/" hreflang="en" lang="en">English</a><span aria-current="page">日本語</span></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">12 枚 / 秒</span> → 60 fps</p>
+  <h1>2 コマ打ち・3 コマ打ちのアニメは、重複を除いてから間を埋める</h1>
+  <p class="lead">24fps のアニメのファイルでも、同じ絵を 2 コマ・3 コマずつ続けていることが多く、違う絵は 1 秒に 12 枚か 8 枚しかありません。普通の補間は同じ絵どうしの間を「動きなし」として扱うので、止まって跳ぶ動きが残ります。FrameSmoother で <span class="ui">重複コマを除く</span> をオンにすると、同じ絵の繰り返しを飛ばし、それぞれの絵を最初に現れた時刻に置いて、絵と絵の間を選んだフレームレートで生成します。処理は iPhone の中で行います。</p>
+  <div class="readout">
+    <div><b>12 / 8 枚</b><span>2 コマ打ち・3 コマ打ちの 24fps のファイルにある、1 秒あたりの違う絵</span></div>
+    <div><b>16.7 ms</b><span>目標 60fps での絵と絵の間隔</span></div>
+    <div><b>既定はオフ</b><span>手描きのアニメのときにオンにするスイッチ</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue" lang="en"><b>01</b>Frame by frame</p>
+    <h2 id="s1">3 枚の絵と、2 通りの埋め方</h2>
+    <p>上の段は 2 コマ打ちの 24fps のファイルで、A・B・C の絵がそれぞれ 2 コマずつ続きます。下の 2 段は、同じ区間の 60fps の結果です。点は動くキャラクターの位置です。</p>
+    <div class="diagram" role="img" aria-label="模式図。重複を除かないと点は 3 コマ止まり、動き、また止まってから動く。重複を除くと点は毎コマ同じ幅で動く。">
+      <div class="row">
+        <p><b>ファイルの中：</b>24fps・2 コマ打ち（A A B B C）</p>
+        <div class="strip" style="--n:5"><i class="k" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="k" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <div class="row">
+        <p><b>そのまま補間：</b>止まる・動く・止まる・動く</p>
+        <div class="strip" style="--n:11"><i class="k" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="g" style="--x:18%"></i><i class="g" style="--x:34%"></i><i class="k" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="g" style="--x:58%"></i><i class="g" style="--x:74%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <div class="row">
+        <p><b><span class="ui">重複コマを除く</span>：</b>毎コマ同じ幅で動く</p>
+        <div class="strip" style="--n:11"><i class="k" style="--x:10%"></i><i class="g" style="--x:18%"></i><i class="g" style="--x:26%"></i><i class="g" style="--x:34%"></i><i class="g" style="--x:42%"></i><i class="k" style="--x:50%"></i><i class="g" style="--x:58%"></i><i class="g" style="--x:66%"></i><i class="g" style="--x:74%"></i><i class="g" style="--x:82%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <p class="legend"><span>ファイルの絵（枠）</span><span class="h">同じ絵（動きなし）</span><span class="g">生成したコマ</span></p>
+    </div>
+    <p class="note">これは模式図で、アプリの出力ではありません。位置は理想化しています。見てほしいのは、どこで動くかです。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue" lang="en"><b>02</b>In numbers</p>
+    <h2 id="s2">1 秒あたりの絵の枚数、前と後</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">24fps のファイルのアニメ</th><th scope="col" class="n src">絵 / 秒</th><th scope="col" class="n src">絵と絵の間隔</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1 コマ打ち</th><td class="n">24</td><td class="n">41.7 ms</td></tr>
+          <tr><th scope="row">2 コマ打ち</th><td class="n">12</td><td class="n">83.3 ms</td></tr>
+          <tr><th scope="row">3 コマ打ち</th><td class="n">8</td><td class="n">125 ms</td></tr>
+          <tr><th scope="row">FrameSmoother・目標 <span class="ui">60fps</span></th><td class="n made">60</td><td class="n made">16.7 ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>何を「同じ絵」とみなすか</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">確かめること</th><th scope="col" class="n">値</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">明るさを測る点</th><td class="n">256 × 144 点</td></tr>
+          <tr><th scope="row">16 × 16 点の窓（半分ずつ重ねる）のどれでも、255 段階のうち 24 段階を超えて変わった点はこの数まで</th><td class="n">3</td></tr>
+          <tr><th scope="row">画面全体の平均の変化はこれ以下</th><td class="n">1.5 段階</td></tr>
+          <tr><th scope="row">直前に残したコマから、この時間内の重複だけを除く</th><td class="n">3/24 秒（125 ms）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">両方の条件を満たしたときだけ同じ絵とみなすので、口パクやまばたき程度の小さな変化があるコマは残り、フェードも重複とはみなしません。125 ms より長く続く止め絵は、次の絵へゆっくり滑らず、止め絵のまま残ります。動画の長さは変わらず、音声も入ります。</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue" lang="en"><b>03</b>On the iPhone</p>
+    <h2 id="s3">FrameSmoother でオンにする</h2>
+    <p>iPhone の写真アプリには、重複コマを除いたりコマを生成したりする設定はありません。FrameSmoother では、重複を除くのはスイッチ 1 つです。</p>
+    <ol class="ops">
+      <li><span class="where">ホーム</span><p class="do"><span class="ui">動画を選択</span> をタップして動画を選びます。</p></li>
+      <li><span class="where">補間設定 › 出力フレームレート</span><p class="do"><span class="ui">目標 fps</span> のまま <span class="ui">60fps</span> を選びます。</p></li>
+      <li><span class="where">アニメ</span><p class="do"><span class="ui">重複コマを除く</span> をオンにします。「2 コマ打ち・3 コマ打ちのアニメ向けです。同じ絵の繰り返しを飛ばし、絵と絵の間をなめらかにつなぎます。」と表示されます。</p></li>
+      <li><span class="where">右上</span><p class="do"><span class="ui">キューに追加</span> をタップします。<span class="ui">キュー</span> が開きます。</p></li>
+      <li><span class="where">キュー</span><p class="do">行が <span class="ui">完了</span> になったらタップし、絵が切り替わるところを 1 コマずつ送って確かめます。プレビューを閉じたら、キューの行にある下向きの矢印のボタンで写真に保存、上向きの矢印のボタンで共有できます。</p></li>
+    </ol>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-anime-ja&amp;mt=8">
+    <span><b>App Store で FrameSmoother を見る</b><small>iPhone</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">ほかの用途も、同じやり方で</h2>
+    <div class="next">
+      <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>30fps の動画を 60fps に。足りないコマを 1 枚ずつ比べる</span></a>
+      <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通の速さで撮った動画を、カクつかないスローに</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">サポート・お問い合わせ</a> · <a href="../../privacy-ja">プライバシーポリシー</a> · <a href="../../terms-ja">利用規約</a></p>
+</footer>
+</body>
+</html>
