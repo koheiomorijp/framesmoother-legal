@@ -1,0 +1,168 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>30fps の動画を 60fps に（iPhone）：1 コマずつ比べる · FrameSmoother</title>
+<meta name="description" content="iPhone で 30fps の動画を 60fps のぬるぬるした動画にするには、コマとコマの間に新しい絵が要ります。FrameSmoother の端末内の補間で作ったコマの実物、前後の数字、アプリでの手順と制限をまとめました。">
+<!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの ja の表示と一字一句そろえる。
+     数字は frame-smoother-app の marketing/real-output/source（KAN-997 の CI の実出力）から測った値。価格・課金の形・運営者名は書かない -->
+<link rel="canonical" href="https://framesmoother.naruberio.com/ja/30fps-to-60fps/">
+<link rel="alternate" hreflang="en" href="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<link rel="alternate" hreflang="ja" href="https://framesmoother.naruberio.com/ja/30fps-to-60fps/">
+<link rel="alternate" hreflang="x-default" href="https://framesmoother.naruberio.com/en/30fps-to-60fps/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30fps の動画を 60fps に（iPhone）：1 コマずつ比べる">
+<meta property="og:description" content="実際に生成したコマ、測った位置、FrameSmoother での手順。">
+<meta property="og:url" content="https://framesmoother.naruberio.com/ja/30fps-to-60fps/">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc" lang="en">frame notes</span></a>
+  <nav class="lang" aria-label="言語"><a href="../../en/30fps-to-60fps/" hreflang="en" lang="en">English</a><span aria-current="page">日本語</span></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">30 fps</span> → 60 fps</p>
+  <h1>30fps の動画を 60fps に。足りないコマを 1 枚ずつ比べる</h1>
+  <p class="lead">30fps の動画は、33.3 ミリ秒ごとに絵が切り替わります。60fps で再生するには、すべてのコマの間に、その中間の絵がもう 1 枚要ります。FrameSmoother はその絵を AI のフレーム補間で iPhone の中で計算し、元のコマは作り直さずにその間に並べて、60fps の動画として保存します。動画をアップロードすることはありません。</p>
+  <div class="readout">
+    <div><b>33.3 → 16.7 ms</b><span>1 枚の絵が画面に出ている時間</span></div>
+    <div><b>コマ間に 1 枚</b><span>元のコマ 2 枚の間に足す新しいコマ</span></div>
+    <div><b>送信 0</b><span>処理は iPhone の中だけで行う</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue" lang="en"><b>01</b>Frame by frame</p>
+    <h2 id="s1">元の動画に無かったコマ</h2>
+    <p>実際の変換から、続けて並んだ 3 コマを切り出しました。元は 1280×720・30fps・2 秒の試験用の動画で、FrameSmoother の処理に <span class="ui">高画質</span>・<span class="ui">60fps</span> で通したものです。真ん中のコマは元の動画にはありません。実線は橙の玉の中心、点線は前後のコマでの位置です。</p>
+    <div class="frames">
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-13.png" width="320" height="400" alt="元の 13 番目のコマ。橙の玉は左寄り、水色の玉は右寄り" loading="lazy"><span class="guide" style="left:29.0%"></span></div>
+        <figcaption><span class="tag">元 #13</span><span class="num">x = 572.8 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot is-made"><img src="../../assets/frames/30to60-generated.png" width="320" height="400" alt="生成したコマ。2 つの玉とも、13 番目と 14 番目の位置の間にある" loading="lazy"><span class="guide ghost" style="left:29.0%"></span><span class="guide" style="left:34.0%"></span><span class="guide ghost" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">生成</span><span class="num">x = 588.9 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-14.png" width="320" height="400" alt="元の 14 番目のコマ。橙の玉はさらに右、水色の玉はさらに左" loading="lazy"><span class="guide" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">元 #14</span><span class="num">x = 606.2 px</span></figcaption>
+      </figure>
+    </div>
+    <div class="track" role="img" aria-label="橙の玉の中心は、13 番目のコマで 572.8 px、生成したコマで 588.9 px、14 番目のコマで 606.2 px。ちょうど中間は 589.5 px。">
+      <span class="axis"></span>
+      <span class="end" style="left:0%">560</span><span class="end" style="left:100%">620 px</span>
+      <span class="pt" style="left:21.3%"></span><span class="lbl up src" style="left:21.3%">#13 572.8</span>
+      <span class="mid" style="left:49.2%"></span><span class="lbl down" style="left:49.2%">中間 589.5</span>
+      <span class="pt made" style="left:48.2%"></span><span class="lbl up made" style="left:48.2%">生成 588.9</span>
+      <span class="pt" style="left:77%"></span><span class="lbl up src" style="left:77%">#14 606.2</span>
+    </div>
+    <p class="note">玉の中心（玉の画素の平均位置）の実測：橙は 572.8 → <span class="made">588.9</span> → 606.2 で、ちょうど中間は 589.5。水色は 726.8 → <span class="made">705.3</span> → 683.4 で、中間は 705.1。この試験は iOS シミュレータの CPU で動かしたもので、iPhone では通常 GPU を使うため、結果がわずかに違うことがあります。平らな玉 2 つは易しい例です。ぶれ、物の前後の重なり、とても速い動きは、どの補間でも難しくなります。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue" lang="en"><b>02</b>In numbers</p>
+    <h2 id="s2">同じ動画の、前と後</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">2 秒の試験用動画</th><th scope="col" class="n src">元</th><th scope="col" class="n made">後</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1 秒あたりの絵</th><td class="n">30</td><td class="n made">60</td></tr>
+          <tr><th scope="row">ファイルのコマ数</th><td class="n">60</td><td class="n made">119</td></tr>
+          <tr><th scope="row">絵と絵の間隔</th><td class="n">33.3 ms</td><td class="n made">16.7 ms</td></tr>
+          <tr><th scope="row">モデルが計算したコマ</th><td class="n">–</td><td class="n made">59</td></tr>
+          <tr><th scope="row">そのまま使った元のコマ</th><td class="n">–</td><td class="n made">60</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">120 ではなく 119 なのは、最後の元のコマの後ろに補間の相手が無く、そのコマで終わるためです。</p>
+    <div class="clip">
+      <video src="../../assets/frames/30to60-stacked.mp4" poster="../../assets/frames/30to60-stacked-poster.png" width="640" height="720" autoplay muted loop playsinline controls aria-label="繰り返し再生の比較。上が 30fps の元の動画、下が 60fps の出力"></video>
+      <span class="tag top">元 · 30 fps</span>
+      <span class="tag bottom">後 · 60 fps</span>
+    </div>
+    <p class="note">上は元の動画（同じ速さで流すため、各コマを 2 回ずつ表示）、下は同じ動画を FrameSmoother で 60fps にしたものです。60Hz 以上の画面では、下の玉は半分の刻みで動き、ぬるぬると動いて見えます。</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue" lang="en"><b>03</b>On the iPhone</p>
+    <h2 id="s3">FrameSmoother で 60fps にする</h2>
+    <ol class="ops">
+      <li><span class="where">ホーム</span><p class="do"><span class="ui">動画を選択</span> をタップし、写真から動画を 1 本以上選びます。</p></li>
+      <li><span class="where">補間設定 › 出力フレームレート</span><p class="do"><span class="ui">目標 fps</span> のまま <span class="ui">60fps</span> を選びます。下の行に、たとえば <span class="ui">出力: 60 fps</span> と仕上がりが出ます。</p></li>
+      <li><span class="where">補間品質</span><p class="do"><span class="ui">高画質</span> は AI のモデルを使います。<span class="ui">高速</span> は AI を使わずに前後のコマを重ねて作るので早く終わりますが、速い動きは粗くなります。</p></li>
+      <li><span class="where">右上</span><p class="do"><span class="ui">キューに追加</span> をタップします。<span class="ui">キュー</span> が開き、進み具合と残り時間の目安が出ます。</p></li>
+      <li><span class="where">キュー</span><p class="do">行が <span class="ui">完了</span> になったらタップしてプレビューを開きます。境目を動かして前後を見比べたり、1 コマずつ送ったりできます。プレビューを閉じたら、キューの行にある下向きの矢印のボタンで写真に保存、上向きの矢印のボタンで AirDrop やほかのアプリに共有できます。</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>Limits</p>
+    <h2 id="s4">できること・できないこと</h2>
+    <div class="limits">
+      <div class="yes">
+        <h3>できる</h3>
+        <ul>
+          <li>mp4・mov（H.264 / HEVC）の動画</li>
+          <li>1 本あたり最長 10 分・4K（3840×2160）・4GB まで</li>
+          <li>キューに 5 本まで入れて、1 本ずつ順に処理</li>
+          <li>目標 60fps・120fps、または倍率 2x・4x。出力の上限は 120fps</li>
+          <li>元の音声をそのまま入れる</li>
+          <li><span class="ui">トリム</span> で一部だけを処理（動画を 1 本だけ選んだとき）</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>できない・違う</h3>
+        <ul>
+          <li>メモリが 4GB 以下の iPhone（iPhone 11・iPhone SE など）では、1080p までの動画に限ります</li>
+          <li>モデルは縮小した画で計算し、結果を元の大きさに戻すので、生成したコマは元のコマより甘く見えることがあります</li>
+          <li>29.97fps の動画を目標 60fps にすると、ちょうど 60fps にそろえるため、ほぼすべてのコマが生成したコマになります。元のコマを残したいときは <span class="ui">倍率</span> の <span class="ui">2x</span> を選びます（出力は 59.94fps）</li>
+          <li>もともと 60fps の動画は、目標 60fps では新しいコマが作られません。追加する前に画面に注意が出ます</li>
+          <li>60fps を超える出力は、mp4 を選んでいても .mov で保存します</li>
+          <li>長い動画・高い解像度・高い目標ほど時間がかかり、重い組み合わせでは追加する前に注意が出ます。キューが終わるまでアプリを開いたままにしてください</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s5">
+    <p class="cue" lang="en"><b>05</b>Other ways</p>
+    <h2 id="s5">無料の手段と並べる</h2>
+    <div class="wrap">
+      <table class="routes">
+        <thead><tr><th scope="col">方法</th><th scope="col">得意なこと</th><th scope="col">弱いところ</th></tr></thead>
+        <tbody>
+          <tr><td>iPhone で 60fps で撮る</td><td>すべてのコマが本物で、計算が要りません。［設定］›［カメラ］›［ビデオ撮影］で 60 fps を選べます。</td><td>これから撮る動画にしか使えません。</td></tr>
+          <tr><td>パソコンの FFmpeg</td><td>無料。<code>minterpolate</code> フィルタで、動きを補間しながらフレームレートを変えられます（例：<code>-vf minterpolate=fps=60</code>）。</td><td>コマンドで操作し、パソコンが要ります。</td></tr>
+          <tr class="self"><td>FrameSmoother</td><td>手元にある動画を、iPhone の中で AI のモデルで変換し、前後を見比べられます。</td><td>4GB の iPhone では 1080p まで。生成したコマは甘くなることがあります。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-60fps-ja&amp;mt=8">
+    <span><b>App Store で FrameSmoother を見る</b><small>iPhone · iOS 16 以降</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s6">
+    <p class="cue" lang="en"><b>06</b>More comparisons</p>
+    <h2 id="s6">ほかの用途も、同じやり方で</h2>
+    <div class="next">
+      <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通の速さで撮った動画を、カクつかないスローに</span></a>
+      <a href="../anime-duplicate-frames/"><span class="tc">2 コマ打ち → 60 fps</span><span>2 コマ打ち・3 コマ打ちのアニメは、重複を除いてから間を埋める</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">サポート・お問い合わせ</a> · <a href="../../privacy-ja">プライバシーポリシー</a> · <a href="../../terms-ja">利用規約</a></p>
+</footer>
+</body>
+</html>

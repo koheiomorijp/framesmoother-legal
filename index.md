@@ -16,6 +16,7 @@ An iPhone app that fills the gaps between video frames, entirely on the device, 
 | check the conditions for using and paying for the app / 使う条件や代金のきまりを確かめたい | [Terms of Service](./terms) · [利用規約](./terms-ja) |
 | report a bug, sort out a purchase or ask a question / 不具合の報告、購入の相談、質問 | [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com) |
 | get your money back / 返金を申し込みたい | [reportaproblem.apple.com](https://reportaproblem.apple.com/) — Apple decides refunds, not the developer / 返金の可否は開発者ではなく Apple が決めます |
+| see what the app does to a video, compared frame by frame / 何をするアプリか、コマごとに比べて見たい | [30fps → 60fps](./en/30fps-to-60fps/) · [Slow motion](./en/smooth-slow-motion/) · [Anime on twos](./en/anime-duplicate-frames/) · [30fps を 60fps に](./ja/30fps-to-60fps/) · [なめらかなスロー](./ja/smooth-slow-motion/) · [アニメの重複コマ](./ja/anime-duplicate-frames/) |
 | download the app / アプリを入手したい | [App Store](https://apps.apple.com/app/id6768623085) — iPhone, iOS 16.0+ |
 
 ## Before you write / メールの前に

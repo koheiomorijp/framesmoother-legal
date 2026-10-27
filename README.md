@@ -18,6 +18,29 @@ iOS アプリ「FrameSmoother」のプライバシーポリシー・利用規約
 - プライバシーポリシー: https://framesmoother.naruberio.com/privacy
 - 利用規約: https://framesmoother.naruberio.com/terms
 
+## 用途別の説明ページ（KAN-1129）
+
+検索や AI の回答から拾われる入口として、用途ごとに「比べて見せる」ページを置く（判断は frame-smoother-app の `docs/decisions.md` D-58）。
+
+| 用途 | en | ja | `ct=` |
+|---|---|---|---|
+| 30fps → 60fps | `en/30fps-to-60fps/` | `ja/30fps-to-60fps/` | `web-60fps-en` / `web-60fps-ja` |
+| なめらかなスロー（2x・4x・8x） | `en/smooth-slow-motion/` | `ja/smooth-slow-motion/` | `web-slowmo-en` / `web-slowmo-ja` |
+| アニメの重複コマ除去 | `en/anime-duplicate-frames/` | `ja/anime-duplicate-frames/` | `web-anime-en` / `web-anime-ja` |
+
+- 各ページは `index.html`（front matter は `layout: null`）。テーマ（minimal）を使わず、`assets/compare.css` だけで描く。外部の JS・フォントは読まない
+- 意匠は「比べて見せる」：暗いグラファイトの地、元のコマは灰青、生成したコマは琥珀、数字は等幅。SoundPull・Readglide の説明ページ（明るい地・物語の型）と同じ作りにしない
+- 章立ては 6 ページとも同じ：01 Frame by frame → 02 In numbers → 03 On the iPhone → 04 Limits → 05 Other ways（無料の手段と並べる）→ App Store → 06 More comparisons
+- **画面の文言（ボタン名・見出し・注記）はアプリの表示と一字一句そろえる**（en / ja それぞれ `Localizable.xcstrings` の値）。アプリの文言を変えたらここも直す。
+  保存・共有・プレビューのボタンは文字が無いので、矢印の向きで説明する
+- 価格・課金の形・運営者の個人名は書かない。実装に無い機能・測っていない数字は書かない
+- 素材 `assets/frames/30to60-*` は frame-smoother-app の `marketing/real-output/source/`（KAN-997 の CI の実出力。入力は自社で作った合成動画）から切り出した。
+  入力 `input-30fps.mp4`（sha256 `c475c6f5…`）・出力 `output-60fps.mp4`（sha256 `d6c20a84…`）。iOS シミュレータの CPU で RIFE v4.25.lite を動かしたもの。
+  スロー・アニメのページの図は CSS の模式図で、実出力ではない（ページにも書いてある）
+- App Store へのリンクは `https://apps.apple.com/app/apple-store/id6768623085?ct=<値>&mt=8`。**`pt=`（provider token）はまだ入れていない**ので、
+  App Store Connect の Analytics の Campaign には計上されない。ASC の UI で provider token を確かめたら 6 本とも `pt=` を足す
+- `sitemap.xml` には jekyll-sitemap が自動で載せる。公開したら IndexNow に 6 本の URL を通知する
+
 ## 言語
 
 - 日本語（マスター）: `privacy-ja.md` / `terms-ja.md`
