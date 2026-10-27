@@ -32,7 +32,6 @@ body {
 :lang(ja) body, body:lang(ja) { line-height: 1.85; }
 a { color: var(--made); text-underline-offset: 0.18em; }
 img, video { display: block; max-width: 100%; height: auto; }
-code { font-family: var(--mono); font-size: 0.88em; background: var(--surface-2); padding: 0.1em 0.35em; border-radius: 3px; overflow-wrap: anywhere; }
 .num, .tc, td.n, th.n { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
 /* 幅は 46rem まで。スマホ（390px）では左右 16px の余白を残す */
@@ -117,23 +116,6 @@ thead th.src { color: var(--source); }
 thead th.made { color: var(--made); }
 tbody th { font-weight: 400; color: var(--ink); }
 td.n.made { color: var(--made); font-weight: 600; }
-table.routes td:first-child { font-weight: 600; }
-table.routes tr.self td { background: var(--surface); }
-/* 手段の表はスマホでは 3 列だと 1 列が数文字幅になるので、1 手段 = 1 かたまりに積む。
-   「得意なこと」「弱いところ」の見出しは、できること／できないことの節と同じ + と − の印で示す */
-@media (max-width: 35.99rem) {
-  table.routes, table.routes tbody, table.routes tr, table.routes td { display: block; width: 100%; }
-  table.routes thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  table.routes tr { padding: 0.65rem 0; border-bottom: 1px solid var(--line); }
-  table.routes tr.self { background: var(--surface); padding-inline: 0.6rem; }
-  table.routes tr.self td { background: none; }
-  table.routes td { position: relative; border: 0; padding: 0.15rem 0 0.15rem 1.3rem; }
-  table.routes td:first-child { padding-left: 0; padding-bottom: 0.3rem; }
-  table.routes td + td::before { position: absolute; left: 0.1rem; top: 0.15rem; font-family: var(--mono); font-weight: 700; }
-  table.routes td:nth-child(2)::before { content: "+"; color: var(--source); }
-  table.routes td:nth-child(3)::before { content: "\2212"; color: var(--made); }
-  table.routes td:nth-child(3) { color: var(--dim); }
-}
 
 /* 上下に並べた動画。札は HTML の文字で重ねる（言語ごとに動画を作り分けないため） */
 .clip { position: relative; margin: 1rem 0 0.4rem; border: 1px solid var(--line); background: #000; }
@@ -167,18 +149,7 @@ ol.ops .do { margin: 0; }
 /* 画面の文言。アプリの表示と一字一句そろえ、画面で探せるようにする */
 .ui { font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--faint); white-space: nowrap; }
 
-/* できること / できないこと を左右に（スマホでは上下に） */
-.limits { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: 0.9rem; }
-.limits h3 { margin: 0 0 0.4rem; font-size: 0.82rem; font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
-.limits .yes h3 { color: var(--source); }
-.limits .no h3 { color: var(--made); }
-.limits ul { list-style: none; margin: 0; padding: 0; }
-.limits li { position: relative; padding: 0.45rem 0 0.45rem 1.3rem; border-top: 1px solid var(--line); font-size: 0.94rem; }
-.limits li::before { position: absolute; left: 0.1rem; top: 0.45rem; font-family: var(--mono); font-weight: 700; }
-.limits .yes li::before { content: "+"; color: var(--source); }
-.limits .no li::before { content: "\2212"; color: var(--made); }
-
-/* App Store への導線は線で囲んだ 1 行。価格や課金の形は書かない */
+/* App Store への導線は線で囲んだ 1 行。価格や課金の形・対応 iOS は書かない（対応 iOS はサポートのページに書く） */
 .store { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2.6rem; padding: 0.95rem 1.1rem; border: 1px solid var(--made); color: var(--ink); text-decoration: none; }
 .store b { display: block; font-size: 1.02rem; }
 .store small { display: block; color: var(--dim); font-size: 0.82rem; }

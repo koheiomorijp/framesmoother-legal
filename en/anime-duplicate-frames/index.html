@@ -8,7 +8,7 @@ layout: null
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Anime on twos and threes to 60fps on iPhone: repeats removed, gaps filled · FrameSmoother</title>
-<meta name="description" content="Why anime drawn on twos or threes stops and jumps after ordinary frame interpolation, how FrameSmoother's Remove duplicate frames setting decides what a repeat is, and the steps and limits on iPhone.">
+<meta name="description" content="Why anime drawn on twos or threes stops and jumps after ordinary frame interpolation, how FrameSmoother's Remove duplicate frames setting decides what a repeat is, and the steps on iPhone.">
 <!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの en の表示と一字一句そろえる。
      判定の数字は DuplicateFrameFilter / DuplicateFrameCriteria（FR-02-15）の値。図は模式図（実出力ではない）と明記する -->
 <link rel="canonical" href="https://framesmoother.naruberio.com/en/anime-duplicate-frames/">
@@ -85,70 +85,30 @@ layout: null
         </tbody>
       </table>
     </div>
-    <p class="note">Both conditions have to hold, so a small change such as a mouth flap or a blink keeps the frame, and a fade is not mistaken for a repeat. When in doubt, a frame is kept: a kept repeat only gives the same result as leaving the switch off. A still that lasts longer than 125 ms stays still instead of turning into a slow glide toward the next drawing. The length of the video does not change, and the sound is kept.</p>
+    <p class="note">Both conditions have to hold, so a small change such as a mouth flap or a blink keeps the frame, and a fade is not mistaken for a repeat. A still that lasts longer than 125 ms stays still instead of turning into a slow glide toward the next drawing. The length of the video does not change, and the sound is kept.</p>
   </section>
 
   <section aria-labelledby="s3">
     <p class="cue"><b>03</b>On the iPhone</p>
     <h2 id="s3">Turning it on in FrameSmoother</h2>
+    <p>The Photos app on iPhone has no setting for removing repeated frames or generating new ones. In FrameSmoother, removing them is one switch.</p>
     <ol class="ops">
       <li><span class="where">Home</span><p class="do">Tap <span class="ui">Select Video</span> and pick the clip.</p></li>
       <li><span class="where">Interpolation Setup › Output Frame Rate</span><p class="do">Keep <span class="ui">Target fps</span> and choose <span class="ui">60fps</span>.</p></li>
       <li><span class="where">Anime</span><p class="do">Turn on <span class="ui">Remove duplicate frames</span>. The note reads: "For anime drawn on twos or threes. Repeated frames are skipped so the motion between drawings becomes smooth."</p></li>
-      <li><span class="where">top right</span><p class="do">Tap <span class="ui">Add to Queue</span>. If a combination can't be reached for this video, a warning appears in place and the button stays off; lower the output frame rate.</p></li>
+      <li><span class="where">top right</span><p class="do">Tap <span class="ui">Add to Queue</span>. The <span class="ui">Queue</span> opens.</p></li>
       <li><span class="where">Queue</span><p class="do">When the row says <span class="ui">Completed</span>, tap it and step one frame at a time across a drawing change to check the result. Back in the queue, save it with the download-arrow button on the row, or share it with the share button.</p></li>
     </ol>
   </section>
 
-  <section aria-labelledby="s4">
-    <p class="cue"><b>04</b>Limits</p>
-    <h2 id="s4">What it handles, and where it stops</h2>
-    <div class="limits">
-      <div class="yes">
-        <h3>Handles</h3>
-        <ul>
-          <li>Animation on twos or threes, including 24fps files and 60fps screen recordings of them (a drawing held for up to 125 ms)</li>
-          <li>Targets of 60fps or 120fps; the same switch can be combined with <span class="ui">Slow Motion</span></li>
-          <li>Original length and sound kept (when Slow Motion is off)</li>
-          <li>mp4 and mov in H.264 or HEVC, up to 10 minutes, 4K and 4 GB</li>
-        </ul>
-      </div>
-      <div class="no">
-        <h3>Stops or differs</h3>
-        <ul>
-          <li>Meant for drawn animation. Live-action video rarely repeats frames, so it does nothing useful there, and a still moment could be treated as repeats</li>
-          <li>Some combinations need more in-between frames than the app allows and are not offered. With 4K video this includes every 120fps output, and 25fps or 50fps video to 60fps; 25fps and 50fps video cannot go to 120fps on any iPhone</li>
-          <li>If repeats are not near-identical in the file (heavy compression, for example), they are kept, and those parts come out as if the switch were off</li>
-          <li>Generated frames are estimates; the model works on a reduced-size copy, so they can look softer than the drawings</li>
-          <li>Use it on videos you made or are allowed to edit</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="s5">
-    <p class="cue"><b>05</b>Other ways</p>
-    <h2 id="s5">Free routes, side by side</h2>
-    <div class="wrap">
-      <table class="routes">
-        <thead><tr><th scope="col">Route</th><th scope="col">Good at</th><th scope="col">Catch</th></tr></thead>
-        <tbody>
-          <tr><td>FFmpeg on a computer</td><td>Free. <code>mpdecimate</code> drops near-duplicate frames and <code>minterpolate</code> generates new ones.</td><td>Command line, on a computer; two filters to combine and tune.</td></tr>
-          <tr><td>The iPhone's own apps</td><td>Playing and trimming the clip.</td><td>Photos has no setting for removing repeated frames or generating new ones.</td></tr>
-          <tr class="self"><td>FrameSmoother</td><td>One switch on the iPhone; holds longer than 125 ms stay holds.</td><td>Some combinations are not offered (for example 120fps from 4K video); not for live action.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-anime-en&amp;mt=8">
-    <span><b>FrameSmoother on the App Store</b><small>iPhone · iOS 16 or later</small></span>
+    <span><b>FrameSmoother on the App Store</b><small>iPhone</small></span>
     <span class="go" aria-hidden="true">↗</span>
   </a>
 
-  <section aria-labelledby="s6">
-    <p class="cue"><b>06</b>More comparisons</p>
-    <h2 id="s6">Other jobs, same method</h2>
+  <section aria-labelledby="s4">
+    <p class="cue"><b>04</b>More comparisons</p>
+    <h2 id="s4">Other jobs, same method</h2>
     <div class="next">
       <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>30fps to 60fps on iPhone, compared frame by frame</span></a>
       <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>Slow motion from a normal-speed video, without the stutter</span></a>

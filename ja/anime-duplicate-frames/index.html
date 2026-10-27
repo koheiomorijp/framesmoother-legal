@@ -8,7 +8,7 @@ layout: null
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>2 コマ打ち・3 コマ打ちのアニメを 60fps に（iPhone）：重複コマを除いて間を埋める · FrameSmoother</title>
-<meta name="description" content="2 コマ打ち・3 コマ打ちのアニメを普通に補間すると「止まって跳ぶ」理由と、ぬるぬるの 60fps にするための FrameSmoother の「重複コマを除く」が何を重複とみなすか。iPhone での手順と制限。">
+<meta name="description" content="2 コマ打ち・3 コマ打ちのアニメを普通に補間すると「止まって跳ぶ」理由と、ぬるぬるの 60fps にするための FrameSmoother の「重複コマを除く」が何を重複とみなすか。iPhone での手順。">
 <!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの ja の表示と一字一句そろえる。
      判定の数字は DuplicateFrameFilter / DuplicateFrameCriteria（FR-02-15）の値。図は模式図（実出力ではない）と明記する -->
 <link rel="canonical" href="https://framesmoother.naruberio.com/ja/anime-duplicate-frames/">
@@ -85,70 +85,30 @@ layout: null
         </tbody>
       </table>
     </div>
-    <p class="note">両方の条件を満たしたときだけ同じ絵とみなすので、口パクやまばたき程度の小さな変化があるコマは残り、フェードも重複とはみなしません。迷うときは残します（重複が残っても、オフのときと同じ結果になるだけです）。125 ms より長く続く止め絵は、次の絵へゆっくり滑らず、止め絵のまま残ります。動画の長さは変わらず、音声も入ります。</p>
+    <p class="note">両方の条件を満たしたときだけ同じ絵とみなすので、口パクやまばたき程度の小さな変化があるコマは残り、フェードも重複とはみなしません。125 ms より長く続く止め絵は、次の絵へゆっくり滑らず、止め絵のまま残ります。動画の長さは変わらず、音声も入ります。</p>
   </section>
 
   <section aria-labelledby="s3">
     <p class="cue" lang="en"><b>03</b>On the iPhone</p>
     <h2 id="s3">FrameSmoother でオンにする</h2>
+    <p>iPhone の写真アプリには、重複コマを除いたりコマを生成したりする設定はありません。FrameSmoother では、重複を除くのはスイッチ 1 つです。</p>
     <ol class="ops">
       <li><span class="where">ホーム</span><p class="do"><span class="ui">動画を選択</span> をタップして動画を選びます。</p></li>
       <li><span class="where">補間設定 › 出力フレームレート</span><p class="do"><span class="ui">目標 fps</span> のまま <span class="ui">60fps</span> を選びます。</p></li>
       <li><span class="where">アニメ</span><p class="do"><span class="ui">重複コマを除く</span> をオンにします。「2 コマ打ち・3 コマ打ちのアニメ向けです。同じ絵の繰り返しを飛ばし、絵と絵の間をなめらかにつなぎます。」と表示されます。</p></li>
-      <li><span class="where">右上</span><p class="do"><span class="ui">キューに追加</span> をタップします。この動画では届かない組み合わせのときは、その場に注意が出てボタンが押せません。出力フレームレートを下げてください。</p></li>
+      <li><span class="where">右上</span><p class="do"><span class="ui">キューに追加</span> をタップします。<span class="ui">キュー</span> が開きます。</p></li>
       <li><span class="where">キュー</span><p class="do">行が <span class="ui">完了</span> になったらタップし、絵が切り替わるところを 1 コマずつ送って確かめます。プレビューを閉じたら、キューの行にある下向きの矢印のボタンで写真に保存、上向きの矢印のボタンで共有できます。</p></li>
     </ol>
   </section>
 
-  <section aria-labelledby="s4">
-    <p class="cue" lang="en"><b>04</b>Limits</p>
-    <h2 id="s4">できること・できないこと</h2>
-    <div class="limits">
-      <div class="yes">
-        <h3>できる</h3>
-        <ul>
-          <li>2 コマ打ち・3 コマ打ちのアニメ。24fps のファイルのほか、それを 60fps で画面録画したものも（同じ絵が 125 ms まで続くもの）</li>
-          <li>目標 60fps・120fps。<span class="ui">スローモーション</span> とも組み合わせられます</li>
-          <li>元の長さと音声をそのまま（スローモーションを使わないとき）</li>
-          <li>mp4・mov（H.264 / HEVC）、最長 10 分・4K・4GB まで</li>
-        </ul>
-      </div>
-      <div class="no">
-        <h3>できない・違う</h3>
-        <ul>
-          <li>手描きのアニメ向けです。実写では同じコマが続くことがまれで効果がなく、静止した場面を重複とみなすおそれがあります</li>
-          <li>間に要るコマが多すぎる組み合わせは選べません。4K の動画では 120fps の出力はすべて選べず、25fps・50fps の動画は 60fps も選べません。25fps・50fps の動画は、4K でなくても 120fps を選べません</li>
-          <li>ファイルの中で重複がほぼ同じ絵になっていない場合（強い圧縮など）は残すので、その部分はオフのときと同じ仕上がりになります</li>
-          <li>生成したコマは推定です。モデルは縮小した画で計算するので、元の絵より甘く見えることがあります</li>
-          <li>自分で作った動画か、編集してよい動画に使ってください</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="s5">
-    <p class="cue" lang="en"><b>05</b>Other ways</p>
-    <h2 id="s5">無料の手段と並べる</h2>
-    <div class="wrap">
-      <table class="routes">
-        <thead><tr><th scope="col">方法</th><th scope="col">得意なこと</th><th scope="col">弱いところ</th></tr></thead>
-        <tbody>
-          <tr><td>パソコンの FFmpeg</td><td>無料。<code>mpdecimate</code> でほぼ同じコマを捨て、<code>minterpolate</code> で新しいコマを作れます。</td><td>コマンドで操作し、パソコンが要ります。2 つのフィルタを組み合わせて調整します。</td></tr>
-          <tr><td>iPhone 標準のアプリ</td><td>再生とトリム。</td><td>写真アプリには、重複コマを除いたりコマを生成したりする設定はありません。</td></tr>
-          <tr class="self"><td>FrameSmoother</td><td>iPhone でスイッチ 1 つ。125 ms より長い止め絵は止め絵のまま。</td><td>選べない組み合わせがあります（4K の動画の 120fps など）。実写には向きません。</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-anime-ja&amp;mt=8">
-    <span><b>App Store で FrameSmoother を見る</b><small>iPhone · iOS 16 以降</small></span>
+    <span><b>App Store で FrameSmoother を見る</b><small>iPhone</small></span>
     <span class="go" aria-hidden="true">↗</span>
   </a>
 
-  <section aria-labelledby="s6">
-    <p class="cue" lang="en"><b>06</b>More comparisons</p>
-    <h2 id="s6">ほかの用途も、同じやり方で</h2>
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">ほかの用途も、同じやり方で</h2>
     <div class="next">
       <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>30fps の動画を 60fps に。足りないコマを 1 枚ずつ比べる</span></a>
       <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通の速さで撮った動画を、カクつかないスローに</span></a>

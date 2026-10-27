@@ -8,7 +8,7 @@ layout: null
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Smooth slow motion from a normal iPhone video: 2x, 4x, 8x in numbers · FrameSmoother</title>
-<meta name="description" content="Why slowing a 30fps video makes it stutter, how many frames are missing at 2x, 4x and 8x, and how FrameSmoother's Slow Motion setting fills them in on the iPhone. Steps, limits and free alternatives.">
+<meta name="description" content="Why slowing a 30fps video makes it stutter, how many frames are missing at 2x, 4x and 8x, and how FrameSmoother's Slow Motion setting fills them in on the iPhone, step by step.">
 <!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの en の表示と一字一句そろえる。
      表の数字は要件 FR-02-13 と OutputTimelinePlan の式から出した値。図は模式図（実出力ではない）と明記する -->
 <link rel="canonical" href="https://framesmoother.naruberio.com/en/smooth-slow-motion/">
@@ -77,64 +77,21 @@ layout: null
     <h2 id="s3">Slowing a clip down in FrameSmoother</h2>
     <ol class="ops">
       <li><span class="where">Home</span><p class="do">Tap <span class="ui">Select Video</span> and pick the clip. Choose a single video if you want to trim it.</p></li>
-      <li><span class="where">Interpolation Setup › Output Frame Rate</span><p class="do">Keep <span class="ui">Target fps</span> and choose <span class="ui">60fps</span> (or <span class="ui">120fps</span>).</p></li>
-      <li><span class="where">Slow Motion</span><p class="do">Pick <span class="ui">2x</span>, <span class="ui">4x</span> or <span class="ui">8x</span>. The note reads: "Plays slower by generating the in-between frames. Audio is not included."</p></li>
+      <li><span class="where">Interpolation Setup › Output Frame Rate</span><p class="do">Keep <span class="ui">Target fps</span> and choose <span class="ui">60fps</span>.</p></li>
+      <li><span class="where">Slow Motion</span><p class="do">Pick <span class="ui">2x</span>, <span class="ui">4x</span> or <span class="ui">8x</span>.</p></li>
       <li><span class="where">Trim</span><p class="do">Move <span class="ui">Start</span> and <span class="ui">End</span> around the moment you want. Only that part is processed, which also cuts the processing time.</p></li>
       <li><span class="where">top right › Queue</span><p class="do">Tap <span class="ui">Add to Queue</span>. When the row says <span class="ui">Completed</span>, tap it: the preview runs the original at the matching slowed position, so both sides show the same moment. Back in the queue, save it with the download-arrow button on the row, or share it with the share button.</p></li>
     </ol>
   </section>
 
-  <section aria-labelledby="s4">
-    <p class="cue"><b>04</b>Limits</p>
-    <h2 id="s4">What it handles, and where it stops</h2>
-    <div class="limits">
-      <div class="yes">
-        <h3>Handles</h3>
-        <ul>
-          <li>2x, 4x and 8x slow-downs of videos shot at normal speed</li>
-          <li>Up to 15 new frames between two original frames (7 for 4K video)</li>
-          <li>Trimming to a single part of one video, down to 0.1 second</li>
-          <li>mp4 and mov in H.264 or HEVC, up to 10 minutes, 4K and 4 GB</li>
-        </ul>
-      </div>
-      <div class="no">
-        <h3>Stops or differs</h3>
-        <ul>
-          <li>Slow-motion output has no sound (it would no longer line up)</li>
-          <li>Combinations that need more than that are not offered, for example a 24fps video at 8x with a 60fps target, or a 4K 30fps video at 8x with a 60fps target. The screen says so and suggests a lower factor or frame rate</li>
-          <li>From 2x up, some new frames are computed from other new frames (more rounds at higher factors), and the model works on a reduced-size copy, so some in-between frames can look softer than others</li>
-          <li>Generated frames are estimates: what the camera never captured, such as heavy motion blur or something appearing from behind an object, cannot be recovered</li>
-          <li>iPhones with 4 GB of memory or less (for example iPhone 11 and iPhone SE) take videos up to 1080p</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="s5">
-    <p class="cue"><b>05</b>Other ways</p>
-    <h2 id="s5">Free routes, side by side</h2>
-    <div class="wrap">
-      <table class="routes">
-        <thead><tr><th scope="col">Route</th><th scope="col">Good at</th><th scope="col">Catch</th></tr></thead>
-        <tbody>
-          <tr><td>Slo-mo in the iPhone Camera</td><td>Records real frames at 120 or 240fps (set in Settings › Camera › Record Slo-mo). The best source for slow motion.</td><td>Has to be chosen before you shoot.</td></tr>
-          <tr><td>Photos, on a Slo-mo video</td><td>Change which part of a Slo-mo video plays slowly, after shooting.</td><td>For videos recorded in Slo-mo.</td></tr>
-          <tr><td>Free video editors, such as iMovie</td><td>Change the speed of a clip.</td><td>Step through the result to see whether pictures repeat (the test above).</td></tr>
-          <tr><td>FFmpeg on a computer</td><td>Free. Slow the timestamps down, then fill with the <code>minterpolate</code> filter.</td><td>Command line, on a computer.</td></tr>
-          <tr class="self"><td>FrameSmoother</td><td>Videos already shot at normal speed, slowed 2x / 4x / 8x on the iPhone with generated in-between frames.</td><td>No sound in slow motion; some combinations are not offered.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-slowmo-en&amp;mt=8">
-    <span><b>FrameSmoother on the App Store</b><small>iPhone · iOS 16 or later</small></span>
+    <span><b>FrameSmoother on the App Store</b><small>iPhone</small></span>
     <span class="go" aria-hidden="true">↗</span>
   </a>
 
-  <section aria-labelledby="s6">
-    <p class="cue"><b>06</b>More comparisons</p>
-    <h2 id="s6">Other jobs, same method</h2>
+  <section aria-labelledby="s4">
+    <p class="cue"><b>04</b>More comparisons</p>
+    <h2 id="s4">Other jobs, same method</h2>
     <div class="next">
       <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>30fps to 60fps on iPhone, compared frame by frame</span></a>
       <a href="../anime-duplicate-frames/"><span class="tc">on twos → 60 fps</span><span>Anime drawn on twos or threes: drop the repeats, then fill the gaps</span></a>

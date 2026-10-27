@@ -8,7 +8,7 @@ layout: null
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>30fps の動画を 60fps に（iPhone）：1 コマずつ比べる · FrameSmoother</title>
-<meta name="description" content="iPhone で 30fps の動画を 60fps のぬるぬるした動画にするには、コマとコマの間に新しい絵が要ります。FrameSmoother の端末内の補間で作ったコマの実物、前後の数字、アプリでの手順と制限をまとめました。">
+<meta name="description" content="iPhone で 30fps の動画を 60fps のぬるぬるした動画にするには、コマとコマの間に新しい絵が要ります。FrameSmoother の端末内の補間で作ったコマの実物、前後の数字、アプリでの手順をまとめました。">
 <!-- 用途別の説明ページ（KAN-1129 / frame-smoother-app D-58）。英語版が正本。画面の文言はアプリの ja の表示と一字一句そろえる。
      数字は frame-smoother-app の marketing/real-output/source（KAN-997 の CI の実出力）から測った値。価格・課金の形・運営者名は書かない -->
 <link rel="canonical" href="https://framesmoother.naruberio.com/ja/30fps-to-60fps/">
@@ -63,7 +63,7 @@ layout: null
       <span class="pt made" style="left:48.2%"></span><span class="lbl up made" style="left:48.2%">生成 588.9</span>
       <span class="pt" style="left:77%"></span><span class="lbl up src" style="left:77%">#14 606.2</span>
     </div>
-    <p class="note">玉の中心（玉の画素の平均位置）の実測：橙は 572.8 → <span class="made">588.9</span> → 606.2 で、ちょうど中間は 589.5。水色は 726.8 → <span class="made">705.3</span> → 683.4 で、中間は 705.1。この試験は iOS シミュレータの CPU で動かしたもので、iPhone では通常 GPU を使うため、結果がわずかに違うことがあります。平らな玉 2 つは易しい例です。ぶれ、物の前後の重なり、とても速い動きは、どの補間でも難しくなります。</p>
+    <p class="note">玉の中心（玉の画素の平均位置）の実測：橙は 572.8 → <span class="made">588.9</span> → 606.2 で、ちょうど中間は 589.5。水色は 726.8 → <span class="made">705.3</span> → 683.4 で、中間は 705.1。この試験は iOS シミュレータの CPU で動かしたもので、iPhone では通常 GPU を使うため、結果がわずかに違うことがあります。</p>
   </section>
 
   <section aria-labelledby="s2">
@@ -96,64 +96,20 @@ layout: null
     <ol class="ops">
       <li><span class="where">ホーム</span><p class="do"><span class="ui">動画を選択</span> をタップし、写真から動画を 1 本以上選びます。</p></li>
       <li><span class="where">補間設定 › 出力フレームレート</span><p class="do"><span class="ui">目標 fps</span> のまま <span class="ui">60fps</span> を選びます。下の行に、たとえば <span class="ui">出力: 60 fps</span> と仕上がりが出ます。</p></li>
-      <li><span class="where">補間品質</span><p class="do"><span class="ui">高画質</span> は AI のモデルを使います。<span class="ui">高速</span> は AI を使わずに前後のコマを重ねて作るので早く終わりますが、速い動きは粗くなります。</p></li>
+      <li><span class="where">補間品質</span><p class="do"><span class="ui">高画質</span> は AI のモデルを使います。<span class="ui">高速</span> は AI を使わずに前後のコマを重ねて作るので、早く終わります。</p></li>
       <li><span class="where">右上</span><p class="do"><span class="ui">キューに追加</span> をタップします。<span class="ui">キュー</span> が開き、進み具合と残り時間の目安が出ます。</p></li>
       <li><span class="where">キュー</span><p class="do">行が <span class="ui">完了</span> になったらタップしてプレビューを開きます。境目を動かして前後を見比べたり、1 コマずつ送ったりできます。プレビューを閉じたら、キューの行にある下向きの矢印のボタンで写真に保存、上向きの矢印のボタンで AirDrop やほかのアプリに共有できます。</p></li>
     </ol>
   </section>
 
-  <section aria-labelledby="s4">
-    <p class="cue" lang="en"><b>04</b>Limits</p>
-    <h2 id="s4">できること・できないこと</h2>
-    <div class="limits">
-      <div class="yes">
-        <h3>できる</h3>
-        <ul>
-          <li>mp4・mov（H.264 / HEVC）の動画</li>
-          <li>1 本あたり最長 10 分・4K（3840×2160）・4GB まで</li>
-          <li>キューに 5 本まで入れて、1 本ずつ順に処理</li>
-          <li>目標 60fps・120fps、または倍率 2x・4x。出力の上限は 120fps</li>
-          <li>元の音声をそのまま入れる</li>
-          <li><span class="ui">トリム</span> で一部だけを処理（動画を 1 本だけ選んだとき）</li>
-        </ul>
-      </div>
-      <div class="no">
-        <h3>できない・違う</h3>
-        <ul>
-          <li>メモリが 4GB 以下の iPhone（iPhone 11・iPhone SE など）では、1080p までの動画に限ります</li>
-          <li>モデルは縮小した画で計算し、結果を元の大きさに戻すので、生成したコマは元のコマより甘く見えることがあります</li>
-          <li>29.97fps の動画を目標 60fps にすると、ちょうど 60fps にそろえるため、ほぼすべてのコマが生成したコマになります。元のコマを残したいときは <span class="ui">倍率</span> の <span class="ui">2x</span> を選びます（出力は 59.94fps）</li>
-          <li>もともと 60fps の動画は、目標 60fps では新しいコマが作られません。追加する前に画面に注意が出ます</li>
-          <li>60fps を超える出力は、mp4 を選んでいても .mov で保存します</li>
-          <li>長い動画・高い解像度・高い目標ほど時間がかかり、重い組み合わせでは追加する前に注意が出ます。キューが終わるまでアプリを開いたままにしてください</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="s5">
-    <p class="cue" lang="en"><b>05</b>Other ways</p>
-    <h2 id="s5">無料の手段と並べる</h2>
-    <div class="wrap">
-      <table class="routes">
-        <thead><tr><th scope="col">方法</th><th scope="col">得意なこと</th><th scope="col">弱いところ</th></tr></thead>
-        <tbody>
-          <tr><td>iPhone で 60fps で撮る</td><td>すべてのコマが本物で、計算が要りません。［設定］›［カメラ］›［ビデオ撮影］で 60 fps を選べます。</td><td>これから撮る動画にしか使えません。</td></tr>
-          <tr><td>パソコンの FFmpeg</td><td>無料。<code>minterpolate</code> フィルタで、動きを補間しながらフレームレートを変えられます（例：<code>-vf minterpolate=fps=60</code>）。</td><td>コマンドで操作し、パソコンが要ります。</td></tr>
-          <tr class="self"><td>FrameSmoother</td><td>手元にある動画を、iPhone の中で AI のモデルで変換し、前後を見比べられます。</td><td>4GB の iPhone では 1080p まで。生成したコマは甘くなることがあります。</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-60fps-ja&amp;mt=8">
-    <span><b>App Store で FrameSmoother を見る</b><small>iPhone · iOS 16 以降</small></span>
+    <span><b>App Store で FrameSmoother を見る</b><small>iPhone</small></span>
     <span class="go" aria-hidden="true">↗</span>
   </a>
 
-  <section aria-labelledby="s6">
-    <p class="cue" lang="en"><b>06</b>More comparisons</p>
-    <h2 id="s6">ほかの用途も、同じやり方で</h2>
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">ほかの用途も、同じやり方で</h2>
     <div class="next">
       <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通の速さで撮った動画を、カクつかないスローに</span></a>
       <a href="../anime-duplicate-frames/"><span class="tc">2 コマ打ち → 60 fps</span><span>2 コマ打ち・3 コマ打ちのアニメは、重複を除いてから間を埋める</span></a>
