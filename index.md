@@ -22,8 +22,8 @@ FrameSmoother は、カクつく動画をなめらかな 60fps・120fps にし�
 | Smooth slow motion / なめらかなスローモーション | Slows a video down by up to 8x. Instead of repeating frames, it generates new ones, so motion stays fluid.<br>最大 8x までスローにします。同じコマを繰り返すのではなく間のコマを生成するので、動きが途切れません。 |
 | Anime drawn on twos or threes / 2 コマ打ち・3 コマ打ちのアニメ | Removes the duplicate frames, then fills in the motion between drawings.<br>重複したコマを除いてから、絵と絵の間をなめらかにつなぎます。 |
 
-Also: trim to process only the part you choose, two quality modes (High Quality with AI / Fast without AI), a queue of up to 5 videos, a Before/After slider with frame-by-frame scrubbing, and export as mp4 or mov to Photos or AirDrop.<br>
-ほかに、選んだ範囲だけを処理するトリム、補間品質 2 段階（高画質（AI）/ 高速（AI 不使用））、最大 5 本のキュー、フレーム単位でスクラブできる Before/After 比較スライダー、mp4 / mov での書き出し（写真に保存・AirDrop で共有）があります。
+Also: trim to process only the part you choose, stabilization to reduce camera shake in handheld footage, two quality modes (High Quality with AI / Fast without AI), a queue of up to 5 videos, a Before/After slider with frame-by-frame scrubbing, and export as mp4 or mov to Photos or AirDrop.<br>
+ほかに、選んだ範囲だけを処理するトリム、手持ちで撮った揺れを抑える手ぶれ補正、補間品質 2 段階（高画質（AI）/ 高速（AI 不使用））、最大 5 本のキュー、フレーム単位でスクラブできる Before/After 比較スライダー、mp4 / mov での書き出し（写真に保存・AirDrop で共有）があります。
 
 **[Get FrameSmoother on the App Store](https://apps.apple.com/app/id6768623085)** · **[App Store で FrameSmoother を入手](https://apps.apple.com/app/id6768623085)**
 
@@ -66,6 +66,7 @@ url は site.url から作る（独自ドメインに移っても書き換えず
     "Slow motion up to 8x with generated in-between frames",
     "Remove duplicate frames from anime drawn on twos or threes",
     "Trim to process only the part you choose",
+    "Stabilization: reduce camera shake in handheld footage",
     "Two quality modes: High Quality (AI) and Fast (no AI)",
     "Queue up to 5 videos",
     "Before/After comparison slider with frame-by-frame scrubbing",
@@ -76,6 +77,6 @@ url は site.url から作る（独自ドメインに移っても書き換えず
   "downloadUrl": "https://apps.apple.com/app/id6768623085",
   "installUrl": "https://apps.apple.com/app/id6768623085",
   "sameAs": "https://apps.apple.com/app/id6768623085",
-  "dateModified": "2026-10-30"
+  "dateModified": "2026-10-31"
 }
 </script>
