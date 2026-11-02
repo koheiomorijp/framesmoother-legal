@@ -77,6 +77,6 @@ url は site.url から作る（独自ドメインに移っても書き換えず
   "downloadUrl": "https://apps.apple.com/app/id6768623085",
   "installUrl": "https://apps.apple.com/app/id6768623085",
   "sameAs": "https://apps.apple.com/app/id6768623085",
-  "dateModified": "2026-10-31"
+  "dateModified": "2026-11-03"
 }
 </script>
