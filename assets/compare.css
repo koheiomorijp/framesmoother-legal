@@ -14,6 +14,8 @@
   --made-ink: #17130a;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
+/* 等幅の札にも漢字が入る。等幅フォントに無い字が日本語の字形に落ちないようにする */
+:root:lang(zh-Hans) { --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -24,6 +26,8 @@ body {
   font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans", sans-serif;
 }
 :lang(ja) body, body:lang(ja) { line-height: 1.85; }
+/* 本文の既定は日本語の字形を先に探すので、簡体字のページでは中国語のフォントを先に置く */
+:lang(zh-Hans) body, body:lang(zh-Hans) { line-height: 1.85; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
 a { color: var(--made); text-underline-offset: 0.18em; }
 img, video { display: block; max-width: 100%; height: auto; }
 .num, .tc, td.n, th.n { font-family: var(--mono); font-variant-numeric: tabular-nums; }
@@ -32,16 +36,19 @@ img, video { display: block; max-width: 100%; height: auto; }
 .bar, .sheet, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1rem; }
 
 .bar {
-  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 0.75rem;
   padding-block: 0.9rem; border-bottom: 1px solid var(--line);
 }
 .brand { color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: 0.01em; }
 .brand .tc { color: var(--faint); font-weight: 400; font-size: 0.78rem; margin-inline-start: 0.4rem; }
-/* 言語の切り替えは 2 つの区画の札にする */
+/* 言語の切り替えは区画の札にする */
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; font-family: var(--mono); font-size: 0.78rem; }
-.lang a, .lang span { padding: 0.2rem 0.6rem; text-decoration: none; }
+/* 札が 3 つあるので、狭い画面では札の中の字を折り返さず、帯のほうを 2 行にする */
+.lang a, .lang span { padding: 0.2rem 0.6rem; text-decoration: none; white-space: nowrap; }
 .lang a { color: var(--dim); }
 .lang span { background: var(--surface-2); color: var(--ink); }
+/* en / ja のページにある簡体字の札も、中国語のフォントで描く */
+.lang a:lang(zh-Hans) { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
 
 .sheet { padding-block: 1.75rem 3rem; }
 

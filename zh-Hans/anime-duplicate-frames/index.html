@@ -1,0 +1,124 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>一拍二、一拍三的动画补帧到 60fps（iPhone）：去掉重复帧，再补中间帧 · FrameSmoother</title>
+<meta name="description" content="一拍二、一拍三的动画用普通补帧后为什么会“停一下、跳一下”，FrameSmoother 的“移除重复帧”如何判断什么算重复，以及在 iPhone 上的操作步骤。">
+{% comment %} 画面の文言はアプリの zh-Hans の表示と一字一句そろえる。判定の数字は en / ja と同じ。図は模式図（実出力ではない）と明記する {% endcomment %}
+<link rel="canonical" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/anime-duplicate-frames/">
+<link rel="alternate" hreflang="en" href="https://koheiomorijp.github.io/framesmoother-legal/en/anime-duplicate-frames/">
+<link rel="alternate" hreflang="ja" href="https://koheiomorijp.github.io/framesmoother-legal/ja/anime-duplicate-frames/">
+<link rel="alternate" hreflang="zh-Hans" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/anime-duplicate-frames/">
+<link rel="alternate" hreflang="x-default" href="https://koheiomorijp.github.io/framesmoother-legal/en/anime-duplicate-frames/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一拍二、一拍三的动画补帧到 60fps（iPhone）：去掉重复帧，再补中间帧">
+<meta property="og:description" content="普通补帧如何处理重复的画面，以及 FrameSmoother 的动画设置有何不同。">
+<meta property="og:url" content="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/anime-duplicate-frames/">
+<meta property="og:locale" content="zh_CN">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc" lang="en">frame notes</span></a>
+  <nav class="lang" aria-label="语言"><a href="../../en/anime-duplicate-frames/" hreflang="en" lang="en">English</a><a href="../../ja/anime-duplicate-frames/" hreflang="ja" lang="ja">日本語</a><span aria-current="page">简体中文</span></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">12 张 / 秒</span> → 60 fps</p>
+  <h1>一拍二、一拍三的动画，先去掉重复帧，再补帧</h1>
+  <p class="lead">24fps 的动画文件里，同一张画往往连续两帧或三帧，每秒不同的画其实只有 12 张或 8 张。普通补帧把重复的画面当作“没有运动”，结果就是停一下、跳一下。打开<span class="ui">移除重复帧</span>后，FrameSmoother 会跳过重复的画面，把每张画放在它首次出现的时刻，并按你选择的帧率生成画与画之间的帧，全程在 iPhone 上完成。</p>
+  <div class="readout">
+    <div><b>12 / 8 张</b><span>一拍二、一拍三的 24fps 文件中，每秒不同的画</span></div>
+    <div><b>16.7 ms</b><span>目标 60fps 时的画面间隔</span></div>
+    <div><b>默认关闭</b><span>处理手绘动画时打开的开关</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue" lang="en"><b>01</b>Frame by frame</p>
+    <h2 id="s1">3 张画，两种补法</h2>
+    <p>最上面一行是一拍二的 24fps 文件：A、B、C 三张画各显示两帧。下面两行是同一段的 60fps 结果。圆点是运动中角色的位置。</p>
+    <div class="diagram" role="img" aria-label="示意图。不移除重复帧时，圆点停留 3 帧，移动，再停留，再移动。移除重复帧后，圆点每帧都前进相同的距离。">
+      <div class="row">
+        <p><b>文件中：</b>24fps、一拍二（A A B B C）</p>
+        <div class="strip" style="--n:5"><i class="k" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="k" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <div class="row">
+        <p><b>直接补帧：</b>停、动、停、动</p>
+        <div class="strip" style="--n:11"><i class="k" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="g" style="--x:18%"></i><i class="g" style="--x:34%"></i><i class="k" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="h" style="--x:50%"></i><i class="g" style="--x:58%"></i><i class="g" style="--x:74%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <div class="row">
+        <p><b><span class="ui">移除重复帧</span>：</b>每帧前进相同的距离</p>
+        <div class="strip" style="--n:11"><i class="k" style="--x:10%"></i><i class="g" style="--x:18%"></i><i class="g" style="--x:26%"></i><i class="g" style="--x:34%"></i><i class="g" style="--x:42%"></i><i class="k" style="--x:50%"></i><i class="g" style="--x:58%"></i><i class="g" style="--x:66%"></i><i class="g" style="--x:74%"></i><i class="g" style="--x:82%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <p class="legend"><span>文件中的画（带边框）</span><span class="h">同一张画（没有运动）</span><span class="g">生成的帧</span></p>
+    </div>
+    <p class="note">这是示意图，不是 App 的输出。位置经过理想化处理，重点是看运动发生在哪里。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue" lang="en"><b>02</b>In numbers</p>
+    <h2 id="s2">每秒的画数，处理前后</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">24fps 文件中的动画</th><th scope="col" class="n src">张 / 秒</th><th scope="col" class="n src">画与画的间隔</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">一拍一</th><td class="n">24</td><td class="n">41.7 ms</td></tr>
+          <tr><th scope="row">一拍二</th><td class="n">12</td><td class="n">83.3 ms</td></tr>
+          <tr><th scope="row">一拍三</th><td class="n">8</td><td class="n">125 ms</td></tr>
+          <tr><th scope="row">FrameSmoother，目标 <span class="ui">60fps</span></th><td class="n made">60</td><td class="n made">16.7 ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>什么算作“重复”</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">检查项</th><th scope="col" class="n">值</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">亮度采样点</th><td class="n">256 × 144 点</td></tr>
+          <tr><th scope="row">每个 16 × 16 点的窗口（相互重叠一半）中，变化超过 24 级（共 255 级）的点最多为</th><td class="n">3</td></tr>
+          <tr><th scope="row">整个画面的平均变化不超过</th><td class="n">1.5 级</td></tr>
+          <tr><th scope="row">只移除距上一张保留帧这段时间以内的重复</th><td class="n">3/24 秒（125 ms）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">两个条件都满足才算重复，因此口型变化、眨眼这类细小变化的帧会被保留，淡入淡出也不会被误判为重复。持续超过 125 ms 的静止画面会保持静止，不会变成缓慢滑向下一张画。视频时长不变，声音也会保留。</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue" lang="en"><b>03</b>On the iPhone</p>
+    <h2 id="s3">在 FrameSmoother 里打开</h2>
+    <p>iPhone 的“照片”App 没有移除重复帧或生成新帧的设置。在 FrameSmoother 里，移除重复帧只需一个开关。</p>
+    <ol class="ops">
+      <li><span class="where">主页</span><p class="do">轻点<span class="ui">选择视频</span>并选择视频。</p></li>
+      <li><span class="where">补帧设置 › 输出帧率</span><p class="do">保持<span class="ui">目标帧率</span>，选择 <span class="ui">60fps</span>。</p></li>
+      <li><span class="where">动画</span><p class="do">打开<span class="ui">移除重复帧</span>。下方的说明是：“适用于一拍二、一拍三的动画。跳过重复的画面，让画与画之间的动作流畅衔接。”</p></li>
+      <li><span class="where">右上角</span><p class="do">轻点<span class="ui">加入队列</span>。<span class="ui">队列</span>会打开。</p></li>
+      <li><span class="where">队列</span><p class="do">当该行显示<span class="ui">完成</span>时，轻点它，在画面切换处逐帧查看结果。关闭预览回到队列后，用该行上向下箭头的按钮存储到照片，用向上箭头的按钮共享。</p></li>
+    </ol>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-anime-zh&amp;mt=8">
+    <span><b>在 App Store 查看 FrameSmoother</b><small>iPhone</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">其他用途，同样的方法</h2>
+    <div class="next">
+      <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>iPhone 视频 30帧转60帧：逐帧看补出来的那一帧</span></a>
+      <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通速度拍的视频，也能做出不卡顿的慢动作</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">帮助与联系</a> · <a href="../../privacy" hreflang="en">隐私政策（英文）</a> · <a href="../../terms" hreflang="en">服务条款（英文）</a></p>
+</footer>
+</body>
+</html>

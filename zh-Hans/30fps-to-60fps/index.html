@@ -1,0 +1,125 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>iPhone 视频 30帧转60帧：逐帧对比补帧效果 · FrameSmoother</title>
+<meta name="description" content="在 iPhone 上把 30fps 视频补帧成丝滑的 60fps，需要在每两帧之间多出一张新画面。这里有 FrameSmoother 在设备端补帧生成的真实画面、前后数据对比，以及 App 内的操作步骤。">
+{% comment %} 画面の文言はアプリの zh-Hans の表示と一字一句そろえる。数字と素材は en / ja と同じ {% endcomment %}
+<link rel="canonical" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/30fps-to-60fps/">
+<link rel="alternate" hreflang="en" href="https://koheiomorijp.github.io/framesmoother-legal/en/30fps-to-60fps/">
+<link rel="alternate" hreflang="ja" href="https://koheiomorijp.github.io/framesmoother-legal/ja/30fps-to-60fps/">
+<link rel="alternate" hreflang="zh-Hans" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/30fps-to-60fps/">
+<link rel="alternate" hreflang="x-default" href="https://koheiomorijp.github.io/framesmoother-legal/en/30fps-to-60fps/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPhone 视频 30帧转60帧：逐帧对比补帧效果">
+<meta property="og:description" content="真实生成的帧、实测的位置，以及 FrameSmoother 的操作步骤。">
+<meta property="og:url" content="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/30fps-to-60fps/">
+<meta property="og:locale" content="zh_CN">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc" lang="en">frame notes</span></a>
+  <nav class="lang" aria-label="语言"><a href="../../en/30fps-to-60fps/" hreflang="en" lang="en">English</a><a href="../../ja/30fps-to-60fps/" hreflang="ja" lang="ja">日本語</a><span aria-current="page">简体中文</span></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">30 fps</span> → 60 fps</p>
+  <h1>iPhone 视频 30帧转60帧：逐帧看补出来的那一帧</h1>
+  <p class="lead">30fps 的视频每 33.3 毫秒换一张画面。要以 60fps 播放，每两帧之间都需要多一张位于正中间的画面。FrameSmoother 在 iPhone 上用 AI 补帧模型计算出这张画面，原有的帧不重新生成，直接穿插其间，最后保存为 60fps 的视频。视频不会被上传。</p>
+  <div class="readout">
+    <div><b>33.3 → 16.7 ms</b><span>每张画面在屏幕上停留的时间</span></div>
+    <div><b>每两帧补 1 帧</b><span>在两张原始帧之间新增的帧</span></div>
+    <div><b>上传 0 次</b><span>处理全程在 iPhone 上完成</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue" lang="en"><b>01</b>Frame by frame</p>
+    <h2 id="s1">原视频里没有的那一帧</h2>
+    <p>这是一次真实转换中连续的 3 帧。原视频是 1280×720、30fps、时长 2 秒的测试视频，经 FrameSmoother 以<span class="ui">高画质</span>、<span class="ui">60fps</span> 处理。中间这一帧在原视频中并不存在。实线标出橙色小球的中心，虚线是它在前后两帧中的位置。</p>
+    <div class="frames">
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-13.png" width="320" height="400" alt="原视频第 13 帧：橙色小球靠左，蓝色小球靠右" loading="lazy"><span class="guide" style="left:29.0%"></span></div>
+        <figcaption><span class="tag">原 #13</span><span class="num">x = 572.8 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot is-made"><img src="../../assets/frames/30to60-generated.png" width="320" height="400" alt="生成的帧：两个小球都位于第 13 帧和第 14 帧的位置之间" loading="lazy"><span class="guide ghost" style="left:29.0%"></span><span class="guide" style="left:34.0%"></span><span class="guide ghost" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">生成</span><span class="num">x = 588.9 px</span></figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="../../assets/frames/30to60-source-14.png" width="320" height="400" alt="原视频第 14 帧：橙色小球更靠右，蓝色小球更靠左" loading="lazy"><span class="guide" style="left:39.4%"></span></div>
+        <figcaption><span class="tag">原 #14</span><span class="num">x = 606.2 px</span></figcaption>
+      </figure>
+    </div>
+    <div class="track" role="img" aria-label="橙色小球的中心：第 13 帧为 572.8 px，生成的帧为 588.9 px，第 14 帧为 606.2 px。正中点为 589.5 px。">
+      <span class="axis"></span>
+      <span class="end" style="left:0%">560</span><span class="end" style="left:100%">620 px</span>
+      <span class="pt" style="left:21.3%"></span><span class="lbl up src" style="left:21.3%">#13 572.8</span>
+      <span class="mid" style="left:49.2%"></span><span class="lbl down" style="left:49.2%">正中 589.5</span>
+      <span class="pt made" style="left:48.2%"></span><span class="lbl up made" style="left:48.2%">生成 588.9</span>
+      <span class="pt" style="left:77%"></span><span class="lbl up src" style="left:77%">#14 606.2</span>
+    </div>
+    <p class="note">小球中心（小球像素的平均位置）的实测值：橙色 572.8 → <span class="made">588.9</span> → 606.2，正中点为 589.5；蓝色 726.8 → <span class="made">705.3</span> → 683.4，正中点为 705.1。本次测试在 iOS 模拟器的 CPU 上运行；在 iPhone 上模型通常使用 GPU，结果可能略有差异。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue" lang="en"><b>02</b>In numbers</p>
+    <h2 id="s2">同一段视频的前后对比</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">2 秒测试视频</th><th scope="col" class="n src">原视频</th><th scope="col" class="n made">处理后</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">每秒画面数</th><td class="n">30</td><td class="n made">60</td></tr>
+          <tr><th scope="row">文件中的帧数</th><td class="n">60</td><td class="n made">119</td></tr>
+          <tr><th scope="row">画面间隔</th><td class="n">33.3 ms</td><td class="n made">16.7 ms</td></tr>
+          <tr><th scope="row">模型计算出的帧</th><td class="n">–</td><td class="n made">59</td></tr>
+          <tr><th scope="row">直接沿用的原始帧</th><td class="n">–</td><td class="n made">60</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">之所以是 119 而不是 120，是因为最后一张原始帧之后没有可用来补帧的下一帧，文件就在这一帧结束。</p>
+    <div class="clip">
+      <video src="../../assets/frames/30to60-stacked.mp4" poster="../../assets/frames/30to60-stacked-poster.png" width="640" height="720" autoplay muted loop playsinline controls aria-label="循环播放的对比：上方是 30fps 原视频，下方是 60fps 输出"></video>
+      <span class="tag top">原视频 · 30 fps</span>
+      <span class="tag bottom">处理后 · 60 fps</span>
+    </div>
+    <p class="note">上方是原视频（为了让上下两段速度相同，每帧显示两次），下方是同一段视频经 FrameSmoother 处理后的 60fps 输出。在 60Hz 及以上刷新率的屏幕上，下方小球每一步的移动距离只有一半，看起来更丝滑。</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue" lang="en"><b>03</b>On the iPhone</p>
+    <h2 id="s3">用 FrameSmoother 转成 60fps</h2>
+    <ol class="ops">
+      <li><span class="where">主页</span><p class="do">轻点<span class="ui">选择视频</span>，从照片图库中选择一个或多个视频。</p></li>
+      <li><span class="where">补帧设置 › 输出帧率</span><p class="do">保持选中<span class="ui">目标帧率</span>，选择 <span class="ui">60fps</span>。下方一行会显示输出结果，例如<span class="ui">输出：60 fps</span>。</p></li>
+      <li><span class="where">补帧质量</span><p class="do"><span class="ui">高画质</span>使用 AI 模型。<span class="ui">快速</span>不使用 AI，通过混合前后的帧来生成，完成得更快。</p></li>
+      <li><span class="where">右上角</span><p class="do">轻点<span class="ui">加入队列</span>。<span class="ui">队列</span>会打开，并显示进度和预计剩余时间。</p></li>
+      <li><span class="where">队列</span><p class="do">当该行显示<span class="ui">完成</span>时，轻点它打开预览：可以拖动分隔线对比前后，也可以逐帧查看。关闭预览回到队列后，用该行上向下箭头的按钮存储到照片，用向上箭头的按钮通过隔空投送或其他 App 共享。</p></li>
+    </ol>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-60fps-zh&amp;mt=8">
+    <span><b>在 App Store 查看 FrameSmoother</b><small>iPhone</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">其他用途，同样的方法</h2>
+    <div class="next">
+      <a href="../smooth-slow-motion/"><span class="tc">2x · 4x · 8x</span><span>普通速度拍的视频，也能做出不卡顿的慢动作</span></a>
+      <a href="../anime-duplicate-frames/"><span class="tc">一拍二 → 60 fps</span><span>一拍二、一拍三的动画，先去掉重复帧，再补帧</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">帮助与联系</a> · <a href="../../privacy" hreflang="en">隐私政策（英文）</a> · <a href="../../terms" hreflang="en">服务条款（英文）</a></p>
+</footer>
+</body>
+</html>

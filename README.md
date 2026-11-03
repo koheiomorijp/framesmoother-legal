@@ -11,24 +11,25 @@ GitHub Pages 有効化後、以下の URL で公開されます:
 - プライバシーポリシー: https://koheiomorijp.github.io/framesmoother-legal/privacy
 - 利用規約: https://koheiomorijp.github.io/framesmoother-legal/terms
 
-検索への登録（KAN-1085）:
+検索への登録:
 
 - `sitemap.xml` は jekyll-sitemap が作る。Search Console の URL プレフィックス `https://koheiomorijp.github.io/framesmoother-legal/` へ送信する
 - `5b6fcd19c442c187daf4197844659045.txt` は IndexNow の鍵（公開して使うもの）。ページを変えて公開したら、`keyLocation` をこのファイルにして通知する
 
-## 用途別の説明ページ（KAN-1129）
+## 用途別の説明ページ
 
-検索や AI の回答から拾われる入口として、用途ごとに「比べて見せる」ページを置く。決まりと理由は frame-smoother-app の `docs/decisions.md` D-76 が正本。
+検索や AI の回答から拾われる入口として、用途ごとに「比べて見せる」ページを置く。決まりと理由は frame-smoother-app の `docs/decisions.md` が正本。
 
-| 用途 | en | ja | `ct=` |
-|---|---|---|---|
-| 30fps → 60fps | `en/30fps-to-60fps/` | `ja/30fps-to-60fps/` | `web-60fps-en` / `web-60fps-ja` |
-| なめらかなスロー（2x・4x・8x） | `en/smooth-slow-motion/` | `ja/smooth-slow-motion/` | `web-slowmo-en` / `web-slowmo-ja` |
-| アニメの重複コマ除去 | `en/anime-duplicate-frames/` | `ja/anime-duplicate-frames/` | `web-anime-en` / `web-anime-ja` |
+| 用途 | en | ja | zh-Hans | `ct=` |
+|---|---|---|---|---|
+| 30fps → 60fps | `en/30fps-to-60fps/` | `ja/30fps-to-60fps/` | `zh-Hans/30fps-to-60fps/` | `web-60fps-en` / `web-60fps-ja` / `web-60fps-zh` |
+| なめらかなスロー（2x・4x・8x） | `en/smooth-slow-motion/` | `ja/smooth-slow-motion/` | `zh-Hans/smooth-slow-motion/` | `web-slowmo-en` / `web-slowmo-ja` / `web-slowmo-zh` |
+| アニメの重複コマ除去 | `en/anime-duplicate-frames/` | `ja/anime-duplicate-frames/` | `zh-Hans/anime-duplicate-frames/` | `web-anime-en` / `web-anime-ja` / `web-anime-zh` |
 
 - 各ページは `index.html`（front matter は `layout: null`）。テーマを使わず `assets/compare.css` だけで描く。外部の JS・フォントは読まない
 - canonical・hreflang・`og:url` は今の github.io の URL で書く。独自ドメインへ移すときは一緒に直す
-- 画面の文言はアプリの表示（`Localizable.xcstrings` の en / ja）とそろえる。アプリの文言を変えたらここも直す
+- 画面の文言はアプリの表示（`Localizable.xcstrings` の en / ja / zh-Hans）とそろえる。アプリの文言を変えたらここも直す
+- zh-Hans のページのフッターの法務のリンクは英語版を指す（法務文書に中国語版が無いため）
 - App Store へのリンクは `https://apps.apple.com/app/apple-store/id6768623085?ct=<値>&mt=8`。`pt=` はまだ入れていないので、Analytics の Campaign には計上されない
 - `sitemap.xml` には jekyll-sitemap が自動で載せる。ページを変えて公開したら IndexNow に通知する
 
