@@ -1,6 +1,7 @@
 ---
 layout: default
 title: FrameSmoother プライバシーポリシー
+permalink: /privacy-ja
 ---
 
 # FrameSmoother プライバシーポリシー
