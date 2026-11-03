@@ -1,0 +1,108 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>普通视频变丝滑慢动作（iPhone）：用数字对比 2x、4x、8x · FrameSmoother</title>
+<meta name="description" content="30fps 视频放慢后为什么会卡顿，2x、4x、8x 分别缺多少帧，FrameSmoother 的慢动作如何在 iPhone 上补帧填满，以及 App 内的操作步骤。">
+{% comment %} 画面の文言はアプリの zh-Hans の表示と一字一句そろえる。数字は en / ja と同じ。図は模式図（実出力ではない）と明記する {% endcomment %}
+<link rel="canonical" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/smooth-slow-motion/">
+<link rel="alternate" hreflang="en" href="https://koheiomorijp.github.io/framesmoother-legal/en/smooth-slow-motion/">
+<link rel="alternate" hreflang="ja" href="https://koheiomorijp.github.io/framesmoother-legal/ja/smooth-slow-motion/">
+<link rel="alternate" hreflang="zh-Hans" href="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/smooth-slow-motion/">
+<link rel="alternate" hreflang="x-default" href="https://koheiomorijp.github.io/framesmoother-legal/en/smooth-slow-motion/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="普通视频变丝滑慢动作（iPhone）：用数字对比 2x、4x、8x">
+<meta property="og:description" content="放慢视频时缺少多少帧，以及 FrameSmoother 如何把它们补上。">
+<meta property="og:url" content="https://koheiomorijp.github.io/framesmoother-legal/zh-Hans/smooth-slow-motion/">
+<meta property="og:locale" content="zh_CN">
+<link rel="stylesheet" href="../../assets/compare.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../../">FrameSmoother<span class="tc" lang="en">frame notes</span></a>
+  <nav class="lang" aria-label="语言"><a href="../../en/smooth-slow-motion/" hreflang="en" lang="en">English</a><a href="../../ja/smooth-slow-motion/" hreflang="ja" lang="ja">日本語</a><span aria-current="page">简体中文</span></nav>
+</header>
+
+<main class="sheet">
+  <p class="kicker"><span class="from">1x</span> → 2x · 4x · 8x 慢动作</p>
+  <h1>普通速度拍的视频，也能做出不卡顿的慢动作</h1>
+  <p class="lead">把 30fps 的视频放慢 4 倍，播放时每秒只剩 7.5 张不同的画面。如果不生成新画面，每张画面只是停留得更久，动作就会一顿一顿的。FrameSmoother 的<span class="ui">慢动作</span>（2x、4x、8x）会在 iPhone 上生成中间的帧，放慢后的视频仍能以你选择的帧率播放。</p>
+  <div class="readout">
+    <div><b>7.5 张 / 秒</b><span>30fps 放慢 4 倍后剩下的不同画面</span></div>
+    <div><b>每两帧补 7 帧</b><span>4x（目标 60fps）时 FrameSmoother 新增的帧</span></div>
+    <div><b>最高 8x</b><span>放慢，并可裁剪出想要的片段</span></div>
+  </div>
+
+  <section aria-labelledby="s1">
+    <p class="cue" lang="en"><b>01</b>Frame by frame</p>
+    <h2 id="s1">4x 时，两帧之间是什么样</h2>
+    <p>每个方格是 60fps 结果中的 1 帧，圆点是运动物体的位置。两行表示的是同一段：从一张原始帧到下一张原始帧，放慢 4 倍。</p>
+    <div class="diagram" role="img" aria-label="示意图。重复画面时，圆点在 8 帧内停在原地，然后跳到下一个位置。生成帧时，圆点在这 8 帧中每帧都前进相同的距离。">
+      <div class="row">
+        <p><b>重复：</b>同一张画面一直重复到下一张原始帧</p>
+        <div class="strip" style="--n:9"><i class="k" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="h" style="--x:10%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <div class="row">
+        <p><b>生成：</b>FrameSmoother 在两张原始帧之间计算出 7 帧</p>
+        <div class="strip" style="--n:9"><i class="k" style="--x:10%"></i><i class="g" style="--x:20%"></i><i class="g" style="--x:30%"></i><i class="g" style="--x:40%"></i><i class="g" style="--x:50%"></i><i class="g" style="--x:60%"></i><i class="g" style="--x:70%"></i><i class="g" style="--x:80%"></i><i class="k" style="--x:90%"></i></div>
+      </div>
+      <p class="legend"><span>原始帧（带边框）</span><span class="h">前一张画面的重复</span><span class="g">生成的帧</span></p>
+    </div>
+    <p class="note">这是示意图，不是 App 的输出。想确认任何一段慢动作视频，都可以逐帧查看（FrameSmoother 的预览里有逐帧按钮）：如果同一张画面连续出现好几帧（30fps 视频放慢 4x 并以 60fps 保存时为 8 帧），就说明没有生成新帧。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <p class="cue" lang="en"><b>02</b>In numbers</p>
+    <h2 id="s2">一段 4 秒、30fps 的视频，各设置下的结果</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col"><span class="ui">慢动作</span></th><th scope="col" class="n">时长</th><th scope="col" class="n src">仅重复时的画面数 / 秒</th><th scope="col" class="n made">每两帧新增的帧数</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="ui">关</span></th><td class="n">4 秒</td><td class="n">30</td><td class="n made">1</td></tr>
+          <tr><th scope="row">2x</th><td class="n">8 秒</td><td class="n">15</td><td class="n made">3</td></tr>
+          <tr><th scope="row">4x</th><td class="n">16 秒</td><td class="n">7.5</td><td class="n made">7</td></tr>
+          <tr><th scope="row">8x</th><td class="n">32 秒</td><td class="n">3.75</td><td class="n made">15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">将<span class="ui">目标帧率</span>设为 <span class="ui">60fps</span> 时，每种设置的输出都以 60fps 播放（时长为取整后的值）。“仅重复时的画面数 / 秒”是只重复帧时剩下的画面数。处理时间大致随新增帧数成比例增长。</p>
+  </section>
+
+  <section aria-labelledby="s3">
+    <p class="cue" lang="en"><b>03</b>On the iPhone</p>
+    <h2 id="s3">在 FrameSmoother 里放慢视频</h2>
+    <ol class="ops">
+      <li><span class="where">主页</span><p class="do">轻点<span class="ui">选择视频</span>并选择视频。如果要裁剪，请只选一个视频。</p></li>
+      <li><span class="where">补帧设置 › 输出帧率</span><p class="do">保持<span class="ui">目标帧率</span>，选择 <span class="ui">60fps</span>。</p></li>
+      <li><span class="where">慢动作</span><p class="do">选择 <span class="ui">2x</span>、<span class="ui">4x</span> 或 <span class="ui">8x</span>。</p></li>
+      <li><span class="where">防抖</span><p class="do">如果是手持拍摄的视频，打开<span class="ui">减少画面抖动</span>。它默认关闭，需要手动打开。</p></li>
+      <li><span class="where">裁剪</span><p class="do">把<span class="ui">开始</span>和<span class="ui">结束</span>移到想放慢的片段前后。只处理选中的部分，处理时间也会缩短。</p></li>
+      <li><span class="where">右上角 › 队列</span><p class="do">轻点<span class="ui">加入队列</span>。当该行显示<span class="ui">完成</span>时，轻点它打开预览：原视频会按对应的放慢位置和速度播放，两边显示的是同一瞬间。关闭预览回到队列后，用该行上向下箭头的按钮存储到照片，用向上箭头的按钮共享。</p></li>
+    </ol>
+  </section>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6768623085?ct=web-slowmo-zh&amp;mt=8">
+    <span><b>在 App Store 查看 FrameSmoother</b><small>iPhone</small></span>
+    <span class="go" aria-hidden="true">↗</span>
+  </a>
+
+  <section aria-labelledby="s4">
+    <p class="cue" lang="en"><b>04</b>More comparisons</p>
+    <h2 id="s4">其他用途，同样的方法</h2>
+    <div class="next">
+      <a href="../30fps-to-60fps/"><span class="tc">30 → 60 fps</span><span>iPhone 视频 30帧转60帧：逐帧看补出来的那一帧</span></a>
+      <a href="../anime-duplicate-frames/"><span class="tc">一拍二 → 60 fps</span><span>一拍二、一拍三的动画，先去掉重复帧，再补帧</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>FrameSmoother · <a href="../../">帮助与联系</a> · <a href="../../privacy" hreflang="en">隐私政策（英文）</a> · <a href="../../terms" hreflang="en">服务条款（英文）</a></p>
+</footer>
+</body>
+</html>
