@@ -3,3 +3,11 @@ title: FrameSmoother
 description: Smooth 60/120fps video and slow motion, made on the iPhone / 動画のコマの間を iPhone の中で補い、なめらかにするアプリ
 theme: jekyll-theme-minimal
 lang: ja
+
+# github.io のまま検索に登録する（KAN-1085）。sitemap と canonical の URL をこの値で固定する
+url: https://koheiomorijp.github.io
+baseurl: /framesmoother-legal
+
+# sitemap.xml を作る（Search Console の URL プレフィックスのプロパティへ送信する）
+plugins:
+  - jekyll-sitemap

@@ -11,6 +11,11 @@ GitHub Pages 有効化後、以下の URL で公開されます:
 - プライバシーポリシー: https://koheiomorijp.github.io/framesmoother-legal/privacy
 - 利用規約: https://koheiomorijp.github.io/framesmoother-legal/terms
 
+検索への登録（KAN-1085）:
+
+- `sitemap.xml` は jekyll-sitemap が作る。Search Console の URL プレフィックス `https://koheiomorijp.github.io/framesmoother-legal/` へ送信する
+- `5b6fcd19c442c187daf4197844659045.txt` は IndexNow の鍵（公開して使うもの）。ページを変えて公開したら、`keyLocation` をこのファイルにして通知する
+
 ## 言語
 
 - 日本語（マスター）: `privacy-ja.md` / `terms-ja.md`
