@@ -1,6 +1,7 @@
 ---
 layout: default
 title: FrameSmoother Terms of Service
+permalink: /terms
 ---
 
 # FrameSmoother Terms of Service

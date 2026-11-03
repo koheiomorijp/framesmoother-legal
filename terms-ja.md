@@ -1,6 +1,7 @@
 ---
 layout: default
 title: FrameSmoother 利用規約
+permalink: /terms-ja
 ---
 
 # FrameSmoother 利用規約
