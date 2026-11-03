@@ -6,7 +6,7 @@ permalink: /privacy
 
 # FrameSmoother Privacy Policy
 
-Effective date: **October 2, 2026** · [日本語](./privacy-ja)
+Effective date: **November 3, 2026** · [日本語](./privacy-ja)
 
 This policy covers FrameSmoother, an iPhone app that generates in-between frames so that motion in a video looks smoother. It is issued by Kohei Omori, a sole proprietor in Japan who develops and sells the app; "I" and "me" below mean him. Instead of listing data categories, the policy takes each party that could conceivably see something and states what, if anything, reaches them.
 
@@ -46,6 +46,7 @@ FrameSmoother contains no third-party code for analytics, advertising, attributi
 |---|---|---|
 | Photos: "Add Photos Only" (`NSPhotoLibraryAddUsageDescription`) | Asked by iOS the first time you save; change it later in iOS Settings → Privacy & Security → Photos | Lets the app place new videos in your library. It cannot read what is already there. Without it, finished files can still be shared |
 | Auto-save to Photos | FrameSmoother → Settings. Off until you switch it on | Saves each finished video to Photos automatically |
+| Notifications | "Notify when job completes" in FrameSmoother → Settings is on by default, and iOS asks for permission the first time you start the queue with it on. You can also change it in iOS Settings → Notifications | Tells you, while the app is not in the foreground, that the queue finished or that iOS paused the processing. A notice shows only fixed wording and how many videos finished or failed, never a file name. The app creates it on the iPhone and sends it to no server, including mine |
 | Share With App Developers | iOS Settings → Privacy & Security → Analytics & Improvements | Decides whether Apple passes crash data and usage statistics for the app on to me |
 | Ask to Buy / purchase limits | Family Sharing, or Screen Time | Lets a parent approve or block purchases |
 
@@ -55,7 +56,7 @@ FrameSmoother never asks to browse your photo library, so items you do not pick 
 
 | Item | Kept until |
 |---|---|
-| Working copy of a clip you picked, and a finished output inside the app | iOS clears the app's temporary folder, or you delete the app. Copies you saved to Photos or shared are then yours to manage |
+| Working copy of a clip you picked, and a finished output inside the app | You remove the video from the queue (unless another row still uses the file), or the app next starts, whichever comes first. A working copy also goes when you cancel the setup screen or the import fails. A file still in use by a preview, the share sheet, a save or a running job goes once that ends. iOS may clear the temporary folder sooner, and deleting the app removes everything. Copies you saved to Photos or shared are then yours to manage |
 | Unfinished output of a job you stopped | Deleted when you stop the job |
 | Preferences (default frame rate, file format, export quality, file-name prefix, auto-save, completion notice) and the flag that the intro screens were seen | You change them in Settings, or delete the app |
 | Speed figures under Settings → Diagnostics | "Reset Samples", or the app quits. They are held in memory only |
