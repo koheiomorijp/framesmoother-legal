@@ -10,6 +10,8 @@ GitHub Pages 有効化後、以下の URL で公開されます:
 
 - プライバシーポリシー: https://koheiomorijp.github.io/framesmoother-legal/privacy
 - 利用規約: https://koheiomorijp.github.io/framesmoother-legal/terms
+- プライバシーポリシー（Android 版）: https://koheiomorijp.github.io/framesmoother-legal/privacy-android
+- 利用規約（Android 版）: https://koheiomorijp.github.io/framesmoother-legal/terms-android
 
 検索への登録:
 
@@ -37,6 +39,7 @@ GitHub Pages 有効化後、以下の URL で公開されます:
 
 - 日本語（マスター）: `privacy-ja.md` / `terms-ja.md`
 - 英語: `privacy.md` / `terms.md`（既定）
+- Android 版: `privacy-android.md` / `terms-android.md`（英語）と `privacy-android-ja.md` / `terms-android-ja.md`（日本語）。iPhone 版とは別のページにする（購入・権限・保存の仕組みが違うため）
 
 中国語・韓国語版は v1.1 以降で追加予定。
 
