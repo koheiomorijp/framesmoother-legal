@@ -8,7 +8,7 @@ permalink: /privacy-android-ja
 
 施行日：**2026 年 11 月 9 日**　·　[English](./privacy-android)　·　iPhone 版は[こちら](./privacy-ja)
 
-このページは、Google Play で配布する FrameSmoother の Android 版を対象にしています。FrameSmoother は、動画のコマとコマの間に新しいコマを足して、動きをなめらかに再生できるようにするアプリです。提供者は日本の個人事業主である大森 康平（以下「私」）です。
+このページは、Google Play で配布する FrameSmoother の Android 版を対象にしています。FrameSmoother は、動画のコマとコマの間に新しいコマを足して、動きをなめらかに再生できるようにするアプリです。提供者は日本の合同会社ナルベリオ（Naruberio LLC。以下「当社」）です。
 
 ## 要点
 
@@ -47,11 +47,11 @@ FrameSmoother はクラウドへのバックアップを切っています。And
 
 ## Google
 
-FrameSmoother は Google Play で販売・配信しています。代金の支払い、返金、Google アカウント、Google Play を使うときに Google が得る情報は、[Google プライバシー ポリシー](https://policies.google.com/privacy?hl=ja)のもとで Google が扱います。アプリ自体は Google と何もやりとりしません。Google Play は私に、インストール数・国・売上・クラッシュやフリーズの件数（Android vitals）などの匿名の集計を見せます。これは Google Play と Android が集めたもので、アプリが送ったものではなく、どなたの情報かは分かりません。
+FrameSmoother は Google Play で販売・配信しています。代金の支払い、返金、Google アカウント、Google Play を使うときに Google が得る情報は、[Google プライバシー ポリシー](https://policies.google.com/privacy?hl=ja)のもとで Google が扱います。アプリ自体は Google と何もやりとりしません。Google Play は当社に、インストール数・国・売上・クラッシュやフリーズの件数（Android vitals）などの匿名の集計を見せます。これは Google Play と Android が集めたもので、アプリが送ったものではなく、どなたの情報かは分かりません。
 
-## 開発者である私
+## 開発元である当社
 
-私があなたの情報を受け取るのは、次の 2 つの場合だけです。下のサポートのアドレスにメールをいただいたとき（メールアドレス、本文、添付）と、Google Play にレビューを書いていただいたとき（そこで公開される名前と本文。返信することがあります）です。いただいた内容は、お問い合わせへの対応と、アプリの修正・改善にだけ使います。メールマガジンに登録したり、ほかの人へ転送したりはしません。報告いただいた不具合について私が残す開発のメモには、お名前とメールアドレスを書きません。
+当社があなたの情報を受け取るのは、次の 2 つの場合だけです。下のサポートのアドレスにメールをいただいたとき（メールアドレス、本文、添付）と、Google Play にレビューを書いていただいたとき（そこで公開される名前と本文。返信することがあります）です。いただいた内容は、お問い合わせへの対応と、アプリの修正・改善にだけ使います。メールマガジンに登録したり、ほかの人へ転送したりはしません。報告いただいた不具合について当社が残す開発のメモには、お名前とメールアドレスを書きません。
 
 アプリの中の、このページ・規約・サポートのメールへのリンクは、ブラウザかメールのアプリで開きます。これらのページは GitHub Pages に置いており、閲覧には [GitHub のプライバシーに関する声明](https://docs.github.com/ja/site-policy/privacy-policies/github-general-privacy-statement)が適用されます。
 
@@ -61,7 +61,7 @@ FrameSmoother は Google Play で販売・配信しています。代金の支�
 
 ## ご依頼への対応
 
-アプリは私に何も送らないため、お見せしたり、直したり、消したりできるアプリのデータを私は持っていません。メールをいただいた場合は、ご依頼に応じてそのメールを削除します。アプリがスマホに残すものは、アンインストールですべて消えます。
+アプリは当社に何も送らないため、お見せしたり、直したり、消したりできるアプリのデータを当社は持っていません。メールをいただいた場合は、ご依頼に応じてそのメールを削除します。アプリがスマホに残すものは、アンインストールですべて消えます。
 
 ## このポリシーの改訂
 
@@ -69,7 +69,7 @@ FrameSmoother は Google Play で販売・配信しています。代金の支�
 
 ## 連絡先
 
-大森 康平（個人事業主・日本）<br>
+合同会社ナルベリオ（Naruberio LLC・日本）<br>
 [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
 
 ---

@@ -47,7 +47,7 @@ iPhone の機種、iOS のバージョン、アプリのバージョン（FrameS
 
 ---
 
-Published by Kohei Omori, sole proprietor, Japan / 提供：大森 康平（個人事業主）
+Published by Kohei Omori, sole proprietor, Japan (iPhone app) and Naruberio LLC, Japan (Android app) / 提供：大森 康平（個人事業主。iPhone 版）・合同会社ナルベリオ（Android 版）
 
 {% comment %}
 構造化データ（KAN-1162）。検索エンジンと AI の回答に「何のアプリか」を渡すため。

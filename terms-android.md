@@ -8,7 +8,7 @@ permalink: /terms-android
 
 Effective date: **November 9, 2026** · [日本語](./terms-android-ja) · iPhone version: [Terms of Service](./terms)
 
-These terms set out how you may use the Android edition of FrameSmoother (the "App"), obtained from Google Play, and what Kohei Omori, a sole proprietor based in Japan (the "Developer"), offers in return. By installing or opening the App you agree to them. If you do not agree, please do not use the App and see section 5 about refunds.
+These terms set out how you may use the Android edition of FrameSmoother (the "App"), obtained from Google Play, and what Naruberio LLC (合同会社ナルベリオ), a company based in Japan (the "Developer"), offers in return. By installing or opening the App you agree to them. If you do not agree, please do not use the App and see section 5 about refunds.
 
 **Sections** — 1. Scope · 2. Phones the App runs on · 3. Your licence · 4. Things not to do · 5. Price, payment and refunds · 6. Your videos and the App's content · 7. Results and liability · 8. Changes · 9. Governing law · 10. Contact
 
@@ -87,7 +87,7 @@ Japanese law applies to these terms. A dispute about the App is to be brought, a
 
 ## 10. Contact
 
-Kohei Omori (sole proprietor, Japan)<br>
+Naruberio LLC (合同会社ナルベリオ, Japan)<br>
 [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
 
 The seller information required by Japan's Act on Specified Commercial Transactions is listed in section 11 of the [Japanese version](./terms-android-ja).

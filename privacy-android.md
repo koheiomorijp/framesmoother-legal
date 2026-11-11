@@ -8,13 +8,13 @@ permalink: /privacy-android
 
 Effective date: **November 9, 2026** · [日本語](./privacy-android-ja) · iPhone version: [Privacy Policy](./privacy)
 
-This page is about the Android edition of FrameSmoother, distributed through Google Play. FrameSmoother adds frames between the existing frames of a video so that its motion plays back more smoothly. The app is provided by Kohei Omori, a sole proprietor in Japan ("I", "me" below).
+This page is about the Android edition of FrameSmoother, distributed through Google Play. FrameSmoother adds frames between the existing frames of a video so that its motion plays back more smoothly. The app is provided by Naruberio LLC (合同会社ナルベリオ), a company in Japan ("we", "us" below).
 
 ## In short
 
 - The Android app has **no permission to use the internet**. It cannot send anything anywhere, and it does not.
 - Videos are processed **inside your phone**. The AI model that creates the new frames ships inside the app.
-- I **collect nothing** through the app: no analytics, no advertising code, no crash reporter, no account.
+- We **collect nothing** through the app: no analytics, no advertising code, no crash reporter, no account.
 
 ## What the app is built from
 
@@ -47,11 +47,11 @@ Cloud backup is switched off for FrameSmoother. When you move to a new phone wit
 
 ## Google
 
-FrameSmoother is sold and delivered by Google Play. Paying for it, refunds, your Google Account and the information Google gathers when you use Google Play are handled by Google under the [Google Privacy Policy](https://policies.google.com/privacy). The app itself exchanges nothing with Google. Google Play gives me anonymous figures such as installs, countries, sales and crash or freeze counts (Android vitals); these come from Google Play and Android, not from anything the app sends, and they do not tell me who you are.
+FrameSmoother is sold and delivered by Google Play. Paying for it, refunds, your Google Account and the information Google gathers when you use Google Play are handled by Google under the [Google Privacy Policy](https://policies.google.com/privacy). The app itself exchanges nothing with Google. Google Play gives us anonymous figures such as installs, countries, sales and crash or freeze counts (Android vitals); these come from Google Play and Android, not from anything the app sends, and they do not tell us who you are.
 
-## Me, the developer
+## Us, the developer
 
-I receive your information in only two situations: when you email the support address below (your address, your message and anything you attach), and when you post a review on Google Play (the name and text shown publicly there, which I may answer). I use what you send to deal with your enquiry and to fix and improve the app. I do not put you on a mailing list or pass your message on. Development notes that I keep about a reported problem leave out your name and email address.
+We receive your information in only two situations: when you email the support address below (your address, your message and anything you attach), and when you post a review on Google Play (the name and text shown publicly there, which we may answer). We use what you send to deal with your enquiry and to fix and improve the app. We do not put you on a mailing list or pass your message on. Development notes that we keep about a reported problem leave out your name and email address.
 
 The links to this page, the terms and the support email open in your browser or email app. These pages are hosted on GitHub Pages; visiting them is covered by [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
@@ -61,7 +61,7 @@ Because the app does not collect information from anyone, it does not collect in
 
 ## Your requests
 
-Since the app sends me nothing, I have no app data about you to show, correct or delete. If you have emailed me, I will delete your messages on request. Everything the app keeps on the phone is removed when you uninstall it.
+Since the app sends us nothing, we have no app data about you to show, correct or delete. If you have emailed us, we will delete your messages on request. Everything the app keeps on the phone is removed when you uninstall it.
 
 ## Updates to this policy
 
@@ -69,7 +69,7 @@ If the app or the law changes in a way that affects this policy, this page will 
 
 ## Contact
 
-Kohei Omori (sole proprietor, Japan)<br>
+Naruberio LLC (合同会社ナルベリオ, Japan)<br>
 [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
 
 ---
