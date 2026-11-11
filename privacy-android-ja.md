@@ -70,7 +70,7 @@ FrameSmoother は Google Play で販売・配信しています。代金の支�
 ## 連絡先
 
 合同会社ナルベリオ（Naruberio LLC・日本）<br>
-[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+[support@naruberio.com](mailto:support@naruberio.com)
 
 ---
 

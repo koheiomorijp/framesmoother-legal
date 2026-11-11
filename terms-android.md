@@ -88,7 +88,7 @@ Japanese law applies to these terms. A dispute about the App is to be brought, a
 ## 10. Contact
 
 Naruberio LLC (合同会社ナルベリオ, Japan)<br>
-[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+[support@naruberio.com](mailto:support@naruberio.com)
 
 The seller information required by Japan's Act on Specified Commercial Transactions is listed in section 11 of the [Japanese version](./terms-android-ja).
 

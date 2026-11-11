@@ -34,7 +34,8 @@ Also: trim to process only the part you choose, stabilization to reduce camera s
 | know what happens to your videos and data / 動画やデータがどう扱われるか知りたい | [Privacy Policy](./privacy) · [プライバシーポリシー](./privacy-ja) |
 | check the conditions for using and paying for the app / 使う条件や代金のきまりを確かめたい | [Terms of Service](./terms) · [利用規約](./terms-ja) |
 | read the policy and terms for the Android version / Android 版のポリシーと規約を読みたい | [Privacy Policy (Android)](./privacy-android) · [Terms of Service (Android)](./terms-android) · [プライバシーポリシー（Android 版）](./privacy-android-ja) · [利用規約（Android 版）](./terms-android-ja) |
-| report a bug, sort out a purchase or ask a question / 不具合の報告、購入の相談、質問 | [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com) |
+| report a bug, sort out a purchase or ask a question (iPhone) / 不具合の報告、購入の相談、質問（iPhone 版） | [konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com) |
+| report a bug, sort out a purchase or ask a question (Android) / 不具合の報告、購入の相談、質問（Android 版） | [support@naruberio.com](mailto:support@naruberio.com) |
 | get your money back (iPhone) / 返金を申し込みたい（iPhone 版） | [reportaproblem.apple.com](https://reportaproblem.apple.com/) — Apple decides refunds, not the developer / 返金の可否は開発者ではなく Apple が決めます |
 | get your money back (Android) / 返金を申し込みたい（Android 版） | [Google Play refunds](https://support.google.com/googleplay/answer/2479637) — Google Play decides refunds under its refund policy / 返金の可否は Google Play の返金ポリシーに従って Google が決めます |
 | see what the app does to a video, compared frame by frame / 何をするアプリか、コマごとに比べて見たい | [30fps → 60fps](./en/30fps-to-60fps/) · [Slow motion](./en/smooth-slow-motion/) · [Anime on twos](./en/anime-duplicate-frames/) · [30fps を 60fps に](./ja/30fps-to-60fps/) · [なめらかなスロー](./ja/smooth-slow-motion/) · [アニメの重複コマ](./ja/anime-duplicate-frames/) · [30帧转60帧](./zh-Hans/30fps-to-60fps/) · [慢动作](./zh-Hans/smooth-slow-motion/) · [动画去重复帧](./zh-Hans/anime-duplicate-frames/) |

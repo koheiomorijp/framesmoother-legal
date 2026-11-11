@@ -88,7 +88,7 @@ permalink: /terms-android-ja
 ## 10. 問い合わせ先
 
 合同会社ナルベリオ（Naruberio LLC・日本）<br>
-[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+[support@naruberio.com](mailto:support@naruberio.com)
 
 ## 11. 特定商取引法に基づく表記
 
@@ -98,7 +98,7 @@ permalink: /terms-android-ja
 | 運営責任者 | ご請求をいただいたときに、下の問い合わせ先のメールで遅滞なくお知らせします |
 | 所在地 | ご請求をいただいたときに、下の問い合わせ先のメールで遅滞なくお知らせします |
 | 電話番号 | ご請求をいただいたときに、下の問い合わせ先のメールで遅滞なくお知らせします |
-| 問い合わせ先 | konpei.work+framesmoother@gmail.com |
+| 問い合わせ先 | support@naruberio.com |
 | 代金 | ¥300（税込みの買い切り。米国では US$1.99（税別））。日本と米国以外は Google Play に表示される現地の価格。アプリ内の購入とサブスクリプション（定期課金）はありません |
 | 代金のほかに必要な費用 | ダウンロードなどにかかる通信料（お客様のご負担） |
 | 支払いの時期 | Google Play で購入の手続きをしたとき |

@@ -70,7 +70,7 @@ If the app or the law changes in a way that affects this policy, this page will 
 ## Contact
 
 Naruberio LLC (合同会社ナルベリオ, Japan)<br>
-[konpei.work+framesmoother@gmail.com](mailto:konpei.work+framesmoother@gmail.com)
+[support@naruberio.com](mailto:support@naruberio.com)
 
 ---
 
