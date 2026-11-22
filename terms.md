@@ -6,7 +6,7 @@ permalink: /terms
 
 # FrameSmoother Terms of Service
 
-Effective date: **October 2, 2026** · [日本語](./terms-ja)
+Effective date: **November 22, 2026** · [日本語](./terms-ja)
 
 This is the agreement between you and Kohei Omori, a sole proprietor based in Japan (the "Developer"), for the iPhone app FrameSmoother (the "App"). Downloading, installing or opening the App counts as accepting it. If you cannot accept it, please do not use the App; Part B explains how refunds work.
 
@@ -39,7 +39,7 @@ This is the agreement between you and Kohei Omori, a sole proprietor based in Ja
 
 | Your situation | What you pay | Japan | United States |
 |---|---|---|---|
-| You buy FrameSmoother on the App Store | The App's price, once; every feature is included | ¥300 | US$1.99 |
+| You buy FrameSmoother on the App Store | The App's price, once; every feature is included | ¥150 | US$0.99 |
 | You downloaded FrameSmoother while it was still free (before it became a paid app in July 2026) | The in-app purchase "Lifetime" (`com.naruberio.framesmoother.lifetime`), once | ¥300 | US$1.99 |
 | You already bought "Lifetime" | Nothing further | — | — |
 
